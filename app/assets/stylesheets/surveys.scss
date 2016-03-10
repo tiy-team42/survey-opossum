@@ -1,3 +1,16 @@
 // Place all the styles related to the Surveys controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$primary-color: #92c6c1;
+$bg-color: white;
+
+body{
+  background-color: $bg-color;
+  color: $primary-color;
+  .new-survey-header{
+    margin: 0  0 0 44%;
+  }
+  h1{
+    color: darken($primary-color, 25%)
+  }
+}
