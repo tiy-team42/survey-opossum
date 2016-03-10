@@ -14,27 +14,40 @@ body{
     border-bottom: solid 3px $primary-color;
     background-color: darken($primary-color, 25%);
     color: $bg-color;
-    font-size: 1em;
+    font-size: .75em;
   }
   .new-survey-wrap{
-    margin: 2% 0 0 0;
+    margin: .5% 0 0 0;
+    display: block;
+
     .field{
       font-family: 'lato', sans-serif;
-      font-weight: 300;
+      font-weight: 5  00;
       color: darken($primary-color, 20%);
-      font-size: 3em;
-      display: block;
-      width: 80%;
-      margin: 0 0 0 12%;
-      .survey-form-text{
-        margin: 0 0 2% 0;
-      }
+      font-size: 1.2em;
+      display: inline-block;
+      width: 47%;
+      MARGIN: .5% 1%;
       .survey-field{
         display: inline-block;
         width: 100%;
-        margin: 2% 0 3% 0;
-        line-height: 1.3em;
+
+      }
+      .survey-area{
+        display: inline-block;
+        width: 96.5%;
+        margin: .5% 0 1% 0;
       }
     }
+    .actions{
+      display: block;
+      padding: .5% 0 .5% 46.5%;
+      background-color: darken($primary-color, 30%);
+      border-top: solid 2px $primary-color;
+      border-bottom: solid 2px $primary-color;
+    }
+  .survey-description{
+    width: 100%;
+  }
   }
 }
