@@ -8,7 +8,8 @@ body{
   background-color: $bg-color;
   color: $primary-color;
   .new-survey-header{
-    margin: 0  0 0 44%;
+    padding: 0  0 0 39%;
+    border-bottom: solid thin $primary-color;
   }
   h1{
     color: darken($primary-color, 25%)
