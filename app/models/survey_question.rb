@@ -1,4 +1,6 @@
 class SurveyQuestion < ActiveRecord::Base
   belongs_to :survey
-  belongs_to :question, polymorphic: true 
+  has_many :boolean_questions
+  has_many :long_answer_questions
+  has_many :short_answer_questions
 end

@@ -1,3 +1,3 @@
 class ShortAnswerQuestion < ActiveRecord::Base
-  has_many :survey_questions, as: :question 
+  belongs_to :survey_question
 end
