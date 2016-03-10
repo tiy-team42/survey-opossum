@@ -1,0 +1,2 @@
+module BooleanQuestionsHelper
+end

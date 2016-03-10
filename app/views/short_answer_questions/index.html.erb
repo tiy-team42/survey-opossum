@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Short Answer Questions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Answer</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @short_answer_questions.each do |short_answer_question| %>
+      <tr>
+        <td><%= short_answer_question.answer %></td>
+        <td><%= link_to 'Show', short_answer_question %></td>
+        <td><%= link_to 'Edit', edit_short_answer_question_path(short_answer_question) %></td>
+        <td><%= link_to 'Destroy', short_answer_question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Short answer question', new_short_answer_question_path %>
