@@ -11,7 +11,7 @@ class SurveysController < ApplicationController
     if logged_in?
       @surveys = Survey.all
     else
-      link_to new_session_path
+      redirect_to login_path
     end
   end
 
