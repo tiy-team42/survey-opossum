@@ -18,7 +18,9 @@
           <% if survey_question.is_boolean? %>
               <%= q.fields_for :boolean_questions, survey_question.boolean_questions.build do |ff| %>
                 <div>
+                  <%= survey_question.choices[0] %>
                   <%= ff.check_box :answer %>
+                  <%= survey_question.choices[1] %>
                 </div>
               <% end %>
           <% elsif survey_question.is_short_answer? %>

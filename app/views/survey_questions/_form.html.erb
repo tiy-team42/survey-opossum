@@ -20,6 +20,10 @@
     <%= f.text_field :question_type %>
   </div>
   <div class="field">
+    <%= f.label :answer_options %> Separate each with a comma. The first answer should be the "yes" option.<br>
+    <%= f.text_field :answer_options %>
+  </div>
+  <div class="field">
     <%= f.label :required %><br>
     <%= f.check_box :required %>
   </div>
