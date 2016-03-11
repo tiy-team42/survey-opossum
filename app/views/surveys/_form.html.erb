@@ -12,35 +12,52 @@
   <% end %>
 
   <div class="new-survey-wrap">
-
-  <div class="field">
-    <%= f.label 'Survey Title:', :class => 'survey-form-text' %><br>
-    <%= f.text_field :title, :class => 'survey-field' %>
-  </div>
-
-  <div class="field">
-    <%= f.label 'Survey Author:' %><br>
-    <%= f.number_field :author_id, :class => 'survey-field' %>
-  </div>
-  <div class="field survey-description">
-    <%= f.label 'Survey description:' %><br>
-    <%= f.text_area :description, :class => 'survey-area' %>
-  </div>
-  <div class="field survey-publish">
-    <%= f.label 'Publish Survey?' %><br>
-    <%= f.check_box :published  %>
-  </div>
-
-  <%= f.fields_for :survey_questions do |ff| %>
-      <div>
-        Question Text: <%= ff.text_field :text %>
-        Required?: <%= ff.check_box :required %>
-        Question Type: <%= ff.select :question_type, [["Yes No", "BooleanQuestion"], ["Short Answer", "ShortAnswerQuestion"], ["Long Answer", "LongAnswerQuestion"]], prompt: "Select question type..." %>
+  <div class="questions-header-bg">
+  <div class="title-auth-wrap">
+      <div class="field">
+        <%= f.label 'Survey Title:', :class => 'survey-form-text' %><br>
+        <%= f.text_field :title, :class => 'survey-field' %>
       </div>
+
+      <div class="field">
+        <%= f.label 'Survey Author:' %><br>
+        <%= f.number_field :author_id, :class => 'survey-field' %>
+      </div>
+    </div>
+    <div class="desc-wrap">
+      <div class="field survey-description">
+        <%= f.label 'Survey description:' %><br>
+        <%= f.text_area :description, :class => 'survey-area' %>
+      </div>
+    </div>
+</div>
+
+<div class='question-wrap'>
+<div class='pick-question'>
+<%= f.fields_for :survey_questions do |ff| %>
+    <div>
+      <span class='q-txt'>QUESTION: <%= ff.text_field :text, :placeholder => "ASK YOUR QUESTION HERE", :class => 'q-field' %></span>
+
+    <span class='q-options'>
+      <span class='q-required'>Is this Question Required?: <%= ff.check_box :required %></span>
+
+      <span class='q-type'>  This Question is a: <%= ff.select :question_type, [["Yes No", "BooleanQuestion"], ["Short Answer", "ShortAnswerQuestion"], ["Long Answer", "LongAnswerQuestion"]], prompt: "Select question type..." %></span>
+    </span>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  <div class="field survey-publish">
+    <%= f.label 'Would you like this survey to be publicly available?' %><br>
+    <%= f.check_box :published, :class => 'pub-check'  %>
+  </div>
+
+
   <% end %>
-
-
-
   <div class="actions">
     <%= f.submit %>
   </div>
