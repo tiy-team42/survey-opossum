@@ -52,6 +52,7 @@ class SurveysController < ApplicationController
       else
         render :new
       end
+    redirect_to new_session_path
     end
   end
 
