@@ -32,6 +32,8 @@
     </div>
 </div>
 
+<input placeholder="ASK YOUR QUESTION HERE" class="q-field" type="text" name="survey[survey_questions_attributes][0][text]" id="survey_survey_questions_attributes_0_text">
+
 <div class='question-wrap'>
 <div class='pick-question'>
 <%= f.fields_for :survey_questions do |ff| %>
@@ -46,10 +48,10 @@
     </div>
   </div>
 </div>
-
+<span class='hidden'>
 THIS SECTION SHOULD ONLY SHOW IF THE USER SELECTED A BOOLEAN QUESTION TYPE
 Add question options, comma separated. The first answer should be the "Yes" option.
-<%= ff.text_field :answer_options, value: "Yes, No" %>
+<%= ff.text_field :answer_options, value: "Yes, No" %></span>
 
 
   <div class="field survey-publish">
