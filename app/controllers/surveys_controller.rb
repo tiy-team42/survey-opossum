@@ -1,4 +1,5 @@
 class SurveysController < ApplicationController
+  before_action :logged_in?, only: [:index, :create]
   before_action :set_survey, only: [:show, :edit, :update, :destroy]
 
   # def boolean_questions
@@ -8,11 +9,7 @@ class SurveysController < ApplicationController
 
   # GET /surveys
   def index
-    if logged_in?
-      @surveys = Survey.all
-    else
-      redirect_to login_path
-    end
+    @surveys = Survey.all
   end
 
   # GET /surveys/1
@@ -44,15 +41,11 @@ class SurveysController < ApplicationController
 
   # POST /surveys
   def create
-    if logged_in?
-      @survey = Survey.new(survey_params)
-
-      if @survey.save
-        redirect_to @survey, notice: 'Survey was successfully created.'
-      else
-        render :new
-      end
-    redirect_to new_session_path
+    @survey = Survey.new(survey_params)
+    if @survey.save
+      redirect_to @survey, notice: 'Survey was successfully created.'
+    else
+      render :new
     end
   end
 
