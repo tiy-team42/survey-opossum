@@ -15,12 +15,12 @@ module SurveysHelper
   return "<script> var #{options[:template]} = '#{tmpl.to_s}' </script>".html_safe
 end
 
-  def add_child_button(name, association,target)
+  def add_child_button(name, association)
     content_tag(:spam,"<span>#{name}</span>".html_safe,
       :class => "add_child",
       :style => "cursor:pointer; border:1px solid #777;",
       :"data-association" => association,
-      :target => target)
+    )
   end
   def remove_child_button(name)
     content_tag(:div,"<span>Remove</span>".html_safe,

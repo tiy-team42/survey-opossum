@@ -38,24 +38,24 @@
 
 <div class='question-wrap'>
 <div class='pick-question'>
-    <%= render 'questions_fields' %>
+  <%= content_tag(:p "New Question") %>
   </div>
 </div>
 
 
-  <%= add_child_button "New Question", :survey_questions, "#survey_questions" %>
 
 
 
   <div class="field survey-publish">
     <%= f.label 'Would you like this survey to be publicly available?' %><br>
     <%= f.check_box :published, :class => 'pub-check'  %>
+        <%= f.submit %>
   </div>
 
 
 
   <div class="actions">
-    <%= f.submit %>
+
   </div>
 <% end %>
 </div>
