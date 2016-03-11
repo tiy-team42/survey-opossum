@@ -27,6 +27,17 @@
     <%= f.label :published %><br>
     <%= f.check_box :published %>
   </div>
+
+  <%= f.fields_for :survey_questions do |ff| %>
+      <div>
+        Question Text: <%= ff.text_field :text %>
+        Required?: <%= ff.check_box :required %>
+        Question Type: <%= ff.select :question_type, [["Yes No", "BooleanQuestion"], ["Short Answer", "ShortAnswerQuestion"], ["Long Answer", "LongAnswerQuestion"]], prompt: "Select question type..." %>
+      </div>
+  <% end %>
+
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
