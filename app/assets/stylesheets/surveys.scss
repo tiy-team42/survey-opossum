@@ -93,12 +93,12 @@ body{
     }
     .actions{
       display: block;
-      padding: .5% 47.25% .5% 46.5%;
+      padding: .5% 53% .5% 46.5%;
       background-color: darken($primary-color, 25%);
       border-top: solid 2px $primary-color;
       // border-bottom: solid 2px $primary-color;
       position: absolute;
-      bottom: 0px;
+      bottom: 10px;
     }
   .survey-description{
     width: 97.5%;
