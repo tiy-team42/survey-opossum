@@ -3,6 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $primary-color: #92c6c1;
 $bg-color: white;
+$question-color: #d9e6ff;
+$survey-bg: whitesmoke;
 
 body{
   background-color: $bg-color;
@@ -17,12 +19,56 @@ body{
     font-size: .75em;
   }
   .new-survey-wrap{
-    margin: .5% 0 0 0;
+    margin: 0 0 0 0;
     display: block;
+    background-color: $survey-bg;
+    .questions-header-bg{
+      padding: 1% 0 2% 0;
+      background-color: darken($survey-bg, 3%);
+      border-bottom: solid thin darken($survey-bg, 10%);
+    .title-auth-wrap{
+      width: 50%;
+    }
 
+    .desc-wrap{
+      width:49%;
+      float: right;
+      margin: -4.1% 0 0 0;
+    }
+    }
+    .question-wrap{
+      margin: 2% 0 0 0;
+
+    .pick-question{
+      border: solid 2px lighten($primary-color, 12%);
+      background-color: lighten($question-color, 6%);
+      font-family: 'lato', sans-serif;
+      font-weight: 300;
+      color: darken($question-color, 70%);
+      margin: 0 0 0 1%;
+      padding:.5% 0;
+      width: 97.5%;
+      border-radius: .4em;
+
+        .q-field{
+          padding: 0 0 0 .5%;
+          width: 45%;
+        }
+        .q-txt{
+          padding: 0 0 0 .5%;
+        }
+        .q-options{
+          margin: 0 .75% 0 0;
+          float: right;
+          .q-required{
+            padding: 0 0   0 0;
+          }
+        }
+    }
+  }
     .field{
       font-family: 'lato', sans-serif;
-      font-weight: 5  00;
+      font-weight: 500;
       color: darken($primary-color, 20%);
       font-size: 1.2em;
       display: inline-block;
@@ -47,11 +93,20 @@ body{
       border-bottom: solid 2px $primary-color;
     }
   .survey-description{
-    width: 85%;
+    width: 97.5%;
   }
   .survey-publish{
-    width: 12%;
-    margin: -20% 000;
+    border-top: solid thin darken($survey-bg, 10%);
+    margin: 2% 2% 0 0;
+    padding: .5% 30% 0 30%;
+    width: 40%;
+    display: inline-block;
+    text-align: center;
+    background-color: darken($survey-bg, 3%);
+    // margin: -20% 000;
+    .pubcheck{
+      display: inline-block;
+    }
   }
   }
 }
