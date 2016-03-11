@@ -3,13 +3,19 @@
 <div class='landing-header'>
   <span class="landing-txt">P L E A S E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;L O G I N</span>
 </div>
-<h1>Ask anything of anyone you want</h1>
-<h3>Log in first, though. Gotta log in first.</h3>
+<div class="login-wrap">
+<div class='login-card'>
+  <h1></h1>
+  <h3>Please Enter Your Email Address</h3>
 
-<%= form_tag(login_path) do %>
-  <%= email_field_tag 'email', nil, placeholder: "Email" %>
-  <%= password_field_tag 'password', nil, placeholder: "Password" %>
-  <%= submit_tag(value="Login") %>
-<% end %>
-
+  <%= form_tag(login_path) do %>
+  <span class='login-email'>  <%= email_field_tag 'email', nil, placeholder: "Email", :class => 'login-email-field'%></span>
+  <h3>Please Enter Your Password</h3>
+    <span class="login-password"><%= password_field_tag 'password', nil, placeholder: "Password", :class => 'login-password-field' %></span>
+    <spam class='login-submit'><%= submit_tag(value="Login") %></span>
+  <% end %>
+</div>
+<span class='hidden'>
 <%= link_to 'Back', sessions_path %>
+</span>
+</div>
