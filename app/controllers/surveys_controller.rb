@@ -1,9 +1,9 @@
 class SurveysController < ApplicationController
   before_action :set_survey, only: [:show, :edit, :update, :destroy]
 
-  def boolean_questions
-    @survey_questions = @survey.survey_questions
-  end
+  # def boolean_questions
+  #   @survey_questions = @survey.survey_questions
+  # end
 
 
   # GET /surveys
