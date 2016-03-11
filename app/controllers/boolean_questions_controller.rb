@@ -4,9 +4,7 @@ class BooleanQuestionsController < ApplicationController
 
   # GET /boolean_questions
   def index
-    if logged_in?
-      @boolean_questions = BooleanQuestion.all
-    end
+    @boolean_questions = BooleanQuestion.all
   end
 
   # GET /boolean_questions/1
