@@ -1,10 +1,13 @@
 <!-- LANDING PAGE -->
+<h1 class="user-login">You're not from around here, are you?</h1>
 
-<h1>You're not from around here, are you?</h1>
+<div class='landing-header'>
+  <span class="landing-txt"></span>
+</div>
 <%= link_to new_session_path %>
 
 <h1>Already a user?</h1>
 <h4>Go here</h4>
-<%= link_to create_session_path %>
+<%= link_to new_session_path %>
 
 <%= link_to "Logout! Now!", logout_path, method: :delete %>
