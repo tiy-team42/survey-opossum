@@ -14,4 +14,5 @@ class SurveyQuestionTest < ActiveSupport::TestCase
     q = SurveyQuestion.create(question_type: "BooleanQuestion", answer_options: "Kinda, Not Really")
     assert_equal "Kinda", q.choices[0]
   end
+
 end

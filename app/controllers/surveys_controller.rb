@@ -1,33 +1,34 @@
 class SurveysController < ApplicationController
+  before_action :logged_in?, only: [:index, :create]
   before_action :set_survey, only: [:show, :edit, :update, :destroy]
 
-  def boolean_questions
-    @survey_questions = @survey.survey_questions
-  end
+  # def boolean_questions
+  #   @survey_questions = @survey.survey_questions
+  # end
 
 
   # GET /surveys
   def index
-    if logged_in?
-      @surveys = Survey.all
-    else
-      link_to new_session_path
-    end
+    @surveys = Survey.where(author_id: session[:user_id])
   end
 
   # GET /surveys/1
 
   #only show if published
   def show
-    @survey_questions = @survey.survey_questions
-    @survey_questions.each_with_index do |q, i|
-      if q.is_boolean?
-        @survey_questions[i].boolean_questions.build
-      elsif  q.is_short_answer?
-        @survey_questions[i].short_answer_questions.build
-      elsif  q.is_long_answer?
-        @survey_questions[i].long_answer_questions.build
-      end
+    if session[:user_id] == @survey.author_id || @survey.published
+        @survey_questions = @survey.survey_questions
+        @survey_questions.each_with_index do |q, i|
+          if q.is_boolean?
+            @survey_questions[i].boolean_questions.build
+          elsif  q.is_short_answer?
+            @survey_questions[i].short_answer_questions.build
+          elsif  q.is_long_answer?
+            @survey_questions[i].long_answer_questions.build
+          end
+        end
+    else
+      redirect_to root_path, notice: "That's not a valid survey."
     end
   end
 
@@ -39,20 +40,20 @@ class SurveysController < ApplicationController
 
   # GET /surveys/1/edit
   def edit
-    @survey.survey_questions.build
+    if @survey.has_responses?
+      redirect_to surveys_path, notice: "Sorry, that survey can't be edited. It already has responses."
+    else
+      @survey.survey_questions.build
+    end
   end
 
   # POST /surveys
   def create
-    if logged_in?
-      @survey = Survey.new(survey_params)
-
-      if @survey.save
-        redirect_to @survey, notice: 'Survey was successfully created.'
-      else
-        render :new
-      end
-    redirect_to new_session_path
+    @survey = Survey.new(survey_params)
+    if @survey.save
+      redirect_to @survey, notice: 'Survey was successfully created.'
+    else
+      render :new
     end
   end
 

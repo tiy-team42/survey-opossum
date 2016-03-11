@@ -6,6 +6,7 @@ $bg-color: white;
 $question-color: #d9e6ff;
 $survey-bg: whitesmoke;
 
+<<<<<<< HEAD
 .new-author-title {
     margin: 132px  0 0 .05%;
     font-family: 'lato', sans-serif;
@@ -21,4 +22,55 @@ $survey-bg: whitesmoke;
 
 .author-container {
     margin: 0 30% 0 20%;
+=======
+.landing-header{
+  font-family: 'lato', sans-serif;
+  font-size: 2em;
+  text-align: center;
+  font-weight: 300;
+  background-color: darken($primary-color, 25%);
+  margin: 132px 0 0 1px;
+  padding: 1.5% 0 1.5% 0;
+  color: $bg-color;
+  border-bottom: 3px solid $primary-color;
+}
+.login-wrap{
+  background-color: $survey-bg;
+  position: fixed;
+  width: 98.9%;
+  height: 69%;
+  .login-card{
+    color: darken($primary-color, 20%);
+    font-family: 'lato', sans-serif;
+    margin: 3% 0 0 35%;
+    background-color: darken($survey-bg, 5%);
+    width: 30%;
+    height: 75%;
+    text-align: center;
+    padding: 1% 0 0 0;
+    border-radius: 3em;
+    border: solid 2px lighten($primary-color, 15%);
+    .login-email{
+      .login-email-field{
+        width: 90%;
+        margin: 2% 0 0 0;
+      }
+    }
+    .login-password{
+      margin: 15% 0 0 0;
+      display: block;
+      .login-password-field{
+        width: 90%;
+        display: inline-block;
+      }
+    }
+    .login-submit{
+      display: block;
+      margin: 40% 0 0 0;
+      .submit-password-btn{
+        width: 40%;
+      }
+    }
+  }
+>>>>>>> 6bc6c551d1d31006cad4f9ff0231946e563e9b82
 }

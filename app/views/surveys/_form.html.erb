@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+  <%= f.hidden_field :author_id, value: session[:user_id] %>
+
   <div class="new-survey-wrap">
   <div class="questions-header-bg">
   <div class="title-auth-wrap">
@@ -19,10 +21,10 @@
         <%= f.text_field :title, :class => 'survey-field' %>
       </div>
 
-      <div class="field">
+      <!-- <div class="field">
         <%= f.label 'Survey Author:' %><br>
         <%= f.number_field :author_id, :class => 'survey-field' %>
-      </div>
+      </div> -->
     </div>
     <div class="desc-wrap">
       <div class="field survey-description">
@@ -30,13 +32,16 @@
         <%= f.text_area :description, :class => 'survey-area' %>
       </div>
     </div>
+    <div class='add-question'>
+      <span class='add-btn-txt'>add a question</span>
+      <%= button_tag%>
+    </div>
 </div>
-
-<input placeholder="ASK YOUR QUESTION HERE" class="q-field" type="text" name="survey[survey_questions_attributes][0][text]" id="survey_survey_questions_attributes_0_text">
 
 <div class='question-wrap'>
 <div class='pick-question'>
-<%= f.fields_for :survey_questions do |ff| %>
+    <%= f.fields_for :survey_questions do |ff| %>
+    <!-- START OF HTML BLOCK THAT SHOULD BE ADDED WHEN NEW ITEM IS CLICKED -->
     <div>
       <span class='q-txt'>QUESTION: <%= ff.text_field :text, :placeholder => "ASK YOUR QUESTION HERE", :class => 'q-field' %></span>
 
@@ -45,24 +50,38 @@
 
       <span class='q-type'>  This Question is a: <%= ff.select :question_type, [["Yes No", "BooleanQuestion"], ["Short Answer", "ShortAnswerQuestion"], ["Long Answer", "LongAnswerQuestion"]], prompt: "Select question type..." %></span>
     </span>
+
+    <span class='hidden'>
+    THIS SECTION SHOULD ONLY SHOW IF THE USER SELECTED A BOOLEAN QUESTION TYPE
+    Add question options, comma separated. The first answer should be the "Yes" option.
+    <%= ff.text_field :answer_options, value: "Yes, No" %></span>
+    <%= ff.text_field :answer_options, value: "Yes, No" %>
+    <!-- END OF HTML BLOCK THAT SHOULD BE ADDED WHEN NEW ITEM IS CLICKED-->
+
+
+
+    <% end %>
+
+
     </div>
-  </div>
-</div>
-<span class='hidden'>
-THIS SECTION SHOULD ONLY SHOW IF THE USER SELECTED A BOOLEAN QUESTION TYPE
-Add question options, comma separated. The first answer should be the "Yes" option.
-<%= ff.text_field :answer_options, value: "Yes, No" %></span>
+
+<!-- <input placeholder="ASK YOUR QUESTION HERE" class="q-field" type="text" name="survey[survey_questions_attributes][1][text]" id="survey_survey_questions_attributes_1_text"> -->
+
+
+
+
 
 
   <div class="field survey-publish">
     <%= f.label 'Would you like this survey to be publicly available?' %><br>
     <%= f.check_box :published, :class => 'pub-check'  %>
+        <%= f.submit %>
   </div>
 
 
-  <% end %>
+
   <div class="actions">
-    <%= f.submit %>
+
   </div>
 <% end %>
 </div>
