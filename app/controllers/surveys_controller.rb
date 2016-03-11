@@ -1,6 +1,11 @@
 class SurveysController < ApplicationController
   before_action :set_survey, only: [:show, :edit, :update, :destroy]
 
+  def boolean_questions
+    @survey_questions = @survey.survey_questions
+  end
+
+
   # GET /surveys
   def index
     @surveys = Survey.all
@@ -15,6 +20,7 @@ class SurveysController < ApplicationController
   def new
     @survey = Survey.new
     @survey.survey_questions.build
+
   end
 
   # GET /surveys/1/edit
@@ -56,6 +62,6 @@ class SurveysController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def survey_params
-      params.require(:survey).permit(:title, :description, :author_id, :published, survey_questions_attributes: [:id, :text, :required, :question_type, :_destroy])
+      params.require(:survey).permit(:title, :description, :author_id, :published, survey_questions_attributes: [:id, :text, :required, :question_type, :_destroy, :boolean_questions_attributes => [:id, :answer]])
     end
 end
