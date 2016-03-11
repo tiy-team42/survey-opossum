@@ -11,32 +11,33 @@
     </div>
   <% end %>
 
-      <h3> Questions </h3>
-  <%= @survey_questions.each do |survey_question| %>
-      <%= survey_question.text %>
-      Required?: <%= survey_question.required %>
-      <% if survey_question.question_type == "BooleanQuestion" %>
-        <%= f.fields_for :boolean_questions do |ff| %>
-          <div>
-            <%= ff.check_box :answer, placeholder: "Answer goes here..." %>
-          </div>
-        <% end %>
-      <% elsif survey_question.question_type == "ShortAnswerQuestion" %>
-        <%= f.fields_for :short_answer_questions do |ff| %>
-          <div>
-            <%= ff.text_field :answer, placeholder: "Answer goes here..." %>
-          </div>
-        <% end %>
-      <% elsif survey_question.question_type == "LongAnswerQuestion" %>
-        <%= f.fields_for :long_answer_questions do |ff| %>
-          <div>
-            <%= ff.text_area :answer, placeholder: "Answer goes here..." %>
-          </div>
-        <% end %>
-      <% else %>
-        No question type
+  <% @survey_questions.each do |survey_question| %>
+    <%= survey_question.text  %>
+    Required?: <%= survey_question.required %>
+      <%= f.fields_for :survey_questions, survey_question do |q| -%>
+          <% if survey_question.is_boolean? %>
+              <%= q.fields_for :boolean_questions, survey_question.boolean_questions.build do |ff| %>
+                <div>
+                  <%= ff.check_box :answer %>
+                </div>
+              <% end %>
+          <% elsif survey_question.is_short_answer? %>
+              <%= q.fields_for :short_answer_questions, survey_question.short_answer_questions.build do |ff| %>
+                <div>
+                  <%= ff.text_field :answer, placeholder: "Answer goes here..." %>
+                </div>
+              <% end %>
+          <% elsif survey_question.is_long_answer? %>
+              <%= q.fields_for :long_answer_questions, survey_question.long_answer_questions.build do |ff| %>
+                <div>
+                  <%= ff.text_area :answer, placeholder: "Answer goes here..." %>
+                </div>
+              <% end %>
+          <% else %>
+            No question type
+          <% end %>
+          <br>
       <% end %>
-
   <% end %>
 
 
