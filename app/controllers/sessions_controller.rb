@@ -1,12 +1,12 @@
 class SessionsController < ApplicationController
-  
+
   def new
   end
 
   def create
     author = Author.find_by(email: params[:email])
     if author && author.authenticate(params[:password])
-      session[:user_id] = user_id
+      session[:user_id] = author.id 
       redirect_to root_path, notice: "Login successful"
     else
       flash[:notice] = "You didn't remember your password"

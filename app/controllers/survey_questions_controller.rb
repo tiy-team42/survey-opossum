@@ -1,4 +1,5 @@
 class SurveyQuestionsController < ApplicationController
+  before_action :logged_in?
   before_action :set_survey_question, only: [:show, :edit, :update, :destroy]
 
   # GET /survey_questions
@@ -56,3 +57,10 @@ class SurveyQuestionsController < ApplicationController
       params.require(:survey_question).permit(:text, :question_id, :question_type, :required, :survey_id)
     end
 end
+
+
+
+# get to survey results by using array of
+#  survey questions.each do |x|
+#     survey_question.question
+#  end

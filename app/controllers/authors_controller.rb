@@ -1,6 +1,10 @@
 class AuthorsController < ApplicationController
+  before_action :logged_in?
   before_action :set_author, only: [:show, :edit, :update, :destroy]
 
+  def logged_in?
+    redirect_to login_path, notice: "You must log in to access this page." unless session[:user_id]
+  end
   # GET /authors
   def index
     @authors = Author.all
