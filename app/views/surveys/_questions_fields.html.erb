@@ -1,0 +1,20 @@
+<%= fields_for :survey_questions do |ff| %>
+<div>
+  <span class='q-txt'>QUESTION: <%= ff.text_field :text, :placeholder => "ASK YOUR QUESTION HERE", :class => 'q-field' %></span>
+
+<span class='q-options'>
+  <span class='q-required'>Is this Question Required?: <%= ff.check_box :required %></span>
+
+  <span class='q-type'>  This Question is a: <%= ff.select :question_type, [["Yes No", "BooleanQuestion"], ["Short Answer", "ShortAnswerQuestion"], ["Long Answer", "LongAnswerQuestion"]], prompt: "Select question type..." %></span>
+</span>
+
+<span class='hidden'>
+THIS SECTION SHOULD ONLY SHOW IF THE USER SELECTED A BOOLEAN QUESTION TYPE
+Add question options, comma separated. The first answer should be the "Yes" option.
+<%= ff.text_field :answer_options, value: "Yes, No" %></span>
+<%= ff.text_field :answer_options, value: "Yes, No" %>
+
+<% end %>
+
+
+</div>
