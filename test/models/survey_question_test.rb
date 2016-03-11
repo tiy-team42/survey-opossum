@@ -1,7 +1,12 @@
 require 'test_helper'
 
 class SurveyQuestionTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "can determine question type" do
+    q = SurveyQuestion.create(question_type: "BooleanQuestion")
+    assert q.is_boolean?
+    q2 = SurveyQuestion.create(question_type: "ShortAnswerQuestion")
+    assert q2.is_short_answer?
+    q3 = SurveyQuestion.create(question_type: "LongAnswerQuestion")
+    assert q3.is_long_answer?
+  end
 end

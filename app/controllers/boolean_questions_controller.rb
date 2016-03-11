@@ -1,4 +1,5 @@
 class BooleanQuestionsController < ApplicationController
+  before_action :logged_in?
   before_action :set_boolean_question, only: [:show, :edit, :update, :destroy]
 
   # GET /boolean_questions

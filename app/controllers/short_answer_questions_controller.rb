@@ -1,4 +1,5 @@
 class ShortAnswerQuestionsController < ApplicationController
+  before_action :logged_in?
   before_action :set_short_answer_question, only: [:show, :edit, :update, :destroy]
 
   # GET /short_answer_questions

@@ -1,4 +1,5 @@
 class LongAnswerQuestionsController < ApplicationController
+  before_action :logged_in?
   before_action :set_long_answer_question, only: [:show, :edit, :update, :destroy]
 
   # GET /long_answer_questions

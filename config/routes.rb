@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :short_answer_questions
   resources :long_answer_questions
   resources :survey_questions
-  resources :surveys
+  resources :surveys do
+    get 'boolean_questions', on: :member
+  end
   resources :authors
   resources :sessions
 
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+  
 
 
   # The priority is based upon order of creation: first created -> highest priority.
