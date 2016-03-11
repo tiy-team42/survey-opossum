@@ -36,6 +36,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'puma'
 gem 'rails_12factor'
+gem 'cocoon'
 
 
 group :production do
