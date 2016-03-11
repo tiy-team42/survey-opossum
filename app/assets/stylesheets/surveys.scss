@@ -19,6 +19,7 @@ body{
     background-color: darken($primary-color, 25%);
     color: $bg-color;
     font-size: .75em;
+    overflow: scroll;
   }
   .new-survey-wrap{
     margin: 0 0 0 .05%;
@@ -104,18 +105,19 @@ body{
   }
   .survey-publish{
     border-top: solid thin darken($survey-bg, 10%);
-    margin: 2% 2% 3% 0;
-    padding: .5% 30% 0 30%;
-    width: 40%;
-    display: inline-block;
-    text-align: center;
+    margin: 2% 2% 0 0;
+    padding: .5% 0 0 0;
+    width: 100%;
+      display: inline-block;
+      text-align: center;
     background-color: darken($survey-bg, 3%);
     position: absolute;;
-    bottom: 0;
+    bottom: 35px;
+
     // margin: -20% 000;
-    .pubcheck{
-      display: inline-block;
-    }
+    // .pubcheck{
+    //   display: inline-block;
+    // }
   }
   }
 }

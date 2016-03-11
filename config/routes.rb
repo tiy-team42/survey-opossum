@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'results/show'
+
   resources :boolean_questions
   resources :short_answer_questions
   resources :long_answer_questions
