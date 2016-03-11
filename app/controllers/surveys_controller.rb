@@ -15,11 +15,11 @@ class SurveysController < ApplicationController
   def show
     @survey_questions = @survey.survey_questions
     @survey_questions.each_with_index do |q, i|
-      if q.question_type == "BooleanQuestion"
+      if q.is_boolean?
         @survey_questions[i].boolean_questions.build
-      elsif  q.question_type == "ShortAnswerQuestion"
+      elsif  q.is_short_answer?
         @survey_questions[i].short_answer_questions.build
-      elsif  q.question_type == "LongAnswerQuestion"
+      elsif  q.is_long_answer?
         @survey_questions[i].long_answer_questions.build
       end
     end
