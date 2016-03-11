@@ -1,0 +1,47 @@
+<%= form_for(@survey) do |f| %>
+  <% if @survey.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey_question from being saved:</h2>
+
+      <ul>
+      <% @survey.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+      <h3> Questions </h3>
+  <%= @survey.survey_questions.each do |survey_question| %>
+      <%= survey_question.text %>
+      Required?: <%= survey_question.required %>
+      <% if survey_question.question_type == "BooleanQuestion" %>
+        <%= f.fields_for :boolean_questions do |ff| %>
+          <div>
+            <%= ff.check_box :answer, placeholder: "Answer goes here..." %>
+          </div>
+        <% end %>
+      <% elsif survey_question.question_type == "ShortAnswerQuestion" %>
+        <%= f.fields_for :short_answer_questions do |ff| %>
+          <div>
+            <%= ff.text_field :answer, placeholder: "Answer goes here..." %>
+          </div>
+        <% end %>
+      <% elsif survey_question.question_type == "LongAnswerQuestion" %>
+        <%= f.fields_for :long_answer_questions do |ff| %>
+          <div>
+            <%= ff.text_area :answer, placeholder: "Answer goes here..." %>
+          </div>
+        <% end %>
+      <% else %>
+        No question type
+      <% end %>
+
+  <% end %>
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
