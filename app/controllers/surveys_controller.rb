@@ -24,12 +24,14 @@ class SurveysController < ApplicationController
 
   # POST /surveys
   def create
-    @survey = Survey.new(survey_params)
+    if logged_in?
+      @survey = Survey.new(survey_params)
 
-    if @survey.save
-      redirect_to @survey, notice: 'Survey was successfully created.'
-    else
-      render :new
+      if @survey.save
+        redirect_to @survey, notice: 'Survey was successfully created.'
+      else
+        render :new
+      end
     end
   end
 
