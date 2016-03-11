@@ -21,16 +21,21 @@ $bg-color: white;
 $question-color: #d9e6ff;
 $survey-bg: whitesmoke;
 
-.app-header {
+.app-header-wrap {
     color: $primary-color;
-    font-family: 'Lato', sans-serif;
+    font-family: 'lato', sans-serif;
     font-size: 3em;
-    padding: .75em 0 .75em 3.75em;
-    width:86.35%;
+    height: 130px;
+    width:98.85%;
     margin: 0 0 0 .05%;
     border-bottom: 3px solid $primary-color;
     position: fixed;
     top: 0;
+    .app-header-text{
+      display: inline-block;
+      // margin: .75em 0 0 0;
+      padding: .75em 0 0 3.75em;
+    }
     .fa-paw{
       color: darken($primary-color, 2%);
     }
