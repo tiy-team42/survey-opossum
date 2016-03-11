@@ -14,6 +14,15 @@ class SurveysController < ApplicationController
   # GET /surveys/1
   def show
     @survey_questions = @survey.survey_questions
+    @survey_questions.each_with_index do |q, i|
+      if q.question_type == "BooleanQuestion"
+        @survey_questions[i].boolean_questions.build
+      elsif  q.question_type == "ShortAnswerQuestion"
+        @survey_questions[i].short_answer_questions.build
+      elsif  q.question_type == "LongAnswerQuestion"
+        @survey_questions[i].long_answer_questions.build
+      end
+    end
   end
 
   # GET /surveys/new
@@ -62,6 +71,6 @@ class SurveysController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def survey_params
-      params.require(:survey).permit(:title, :description, :author_id, :published, survey_questions_attributes: [:id, :text, :required, :question_type, :_destroy, :boolean_questions_attributes => [:id, :answer]])
+      params.require(:survey).permit(:title, :description, :author_id, :published, survey_questions_attributes: [:id, :text, :required, :question_type, :_destroy, :boolean_questions_attributes => [:id, :answer], :short_answer_questions_attributes => [:id, :answer], :long_answer_questions_attributes => [:id, :answer]])
     end
 end
