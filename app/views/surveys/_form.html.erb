@@ -11,23 +11,38 @@
     </div>
   <% end %>
 
+  <div class="new-survey-wrap">
+
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.label 'Survey Title:', :class => 'survey-form-text' %><br>
+    <%= f.text_field :title, :class => 'survey-field' %>
   </div>
+
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.label 'Survey Author:' %><br>
+    <%= f.number_field :author_id, :class => 'survey-field' %>
   </div>
-  <div class="field">
-    <%= f.label :author_id %><br>
-    <%= f.number_field :author_id %>
+  <div class="field survey-description">
+    <%= f.label 'Survey description:' %><br>
+    <%= f.text_area :description, :class => 'survey-area' %>
   </div>
-  <div class="field">
-    <%= f.label :published %><br>
-    <%= f.check_box :published %>
+  <div class="field survey-publish">
+    <%= f.label 'Publish Survey?' %><br>
+    <%= f.check_box :published  %>
   </div>
+
+  <%= f.fields_for :survey_questions do |ff| %>
+      <div>
+        Question Text: <%= ff.text_field :text %>
+        Required?: <%= ff.check_box :required %>
+        Question Type: <%= ff.select :question_type, [["Yes No", "BooleanQuestion"], ["Short Answer", "ShortAnswerQuestion"], ["Long Answer", "LongAnswerQuestion"]], prompt: "Select question type..." %>
+      </div>
+  <% end %>
+
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+</div>
