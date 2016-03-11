@@ -8,10 +8,16 @@ class SurveysController < ApplicationController
 
   # GET /surveys
   def index
-    @surveys = Survey.all
+    if logged_in?
+      @surveys = Survey.all
+    else
+      link_to new_session_path
+    end
   end
 
   # GET /surveys/1
+
+  #only show if published
   def show
     @survey_questions = @survey.survey_questions
     @survey_questions.each_with_index do |q, i|
@@ -29,7 +35,6 @@ class SurveysController < ApplicationController
   def new
     @survey = Survey.new
     @survey.survey_questions.build
-
   end
 
   # GET /surveys/1/edit
