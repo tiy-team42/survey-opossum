@@ -36,20 +36,23 @@ $survey-bg: whitesmoke;
     .login-email{
       .login-email-field{
         width: 90%;
-        margin: 10% 0 0 0;
+        margin: 2% 0 0 0;
       }
     }
     .login-password{
-      margin: 10% 0 0 0;
+      margin: 15% 0 0 0;
       display: block;
       .login-password-field{
         width: 90%;
-        display: block;
+        display: inline-block;
       }
     }
     .login-submit{
       display: block;
-      margin: 20% 0 0 0;
+      margin: 40% 0 0 0;
+      .submit-password-btn{
+        width: 40%;
+      }
     }
   }
 }
