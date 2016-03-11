@@ -12,4 +12,8 @@ class Survey < ActiveRecord::Base
      allow_destroy: true
 
 
+  def has_responses?
+   survey_questions.any? {|q| q.boolean_questions.count > 0 || q.short_answer_questions.count > 0 || q.long_answer_questions.count > 0 }
+  end
+
 end

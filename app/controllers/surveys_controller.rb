@@ -28,7 +28,7 @@ class SurveysController < ApplicationController
           end
         end
     else
-      redirect_to root_path notice: "That's not a valid survey."
+      redirect_to root_path, notice: "That's not a valid survey."
     end
   end
 
@@ -40,7 +40,11 @@ class SurveysController < ApplicationController
 
   # GET /surveys/1/edit
   def edit
-    @survey.survey_questions.build
+    if @survey.has_responses?
+      redirect_to surveys_path, notice: "Sorry, that survey can't be edited. It already has responses."
+    else
+      @survey.survey_questions.build
+    end
   end
 
   # POST /surveys
@@ -72,10 +76,6 @@ class SurveysController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_survey
       @survey = Survey.find(params[:id])
-    end
-
-    def survey_has_responses
-      
     end
 
     # Only allow a trusted parameter "white list" through.
