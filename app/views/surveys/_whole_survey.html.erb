@@ -15,19 +15,19 @@
     <%= survey_question.text  %>
     Required?: <%= survey_question.required %>
       <%= f.fields_for :survey_questions, survey_question do |q| -%>
-          <% if survey_question.question_type == "BooleanQuestion" %>
+          <% if survey_question.is_boolean? %>
               <%= q.fields_for :boolean_questions, survey_question.boolean_questions.build do |ff| %>
                 <div>
                   <%= ff.check_box :answer %>
                 </div>
               <% end %>
-          <% elsif survey_question.question_type == "ShortAnswerQuestion" %>
+          <% elsif survey_question.is_short_answer? %>
               <%= q.fields_for :short_answer_questions, survey_question.short_answer_questions.build do |ff| %>
                 <div>
                   <%= ff.text_field :answer, placeholder: "Answer goes here..." %>
                 </div>
               <% end %>
-          <% elsif survey_question.question_type == "LongAnswerQuestion" %>
+          <% elsif survey_question.is_long_answer? %>
               <%= q.fields_for :long_answer_questions, survey_question.long_answer_questions.build do |ff| %>
                 <div>
                   <%= ff.text_area :answer, placeholder: "Answer goes here..." %>
