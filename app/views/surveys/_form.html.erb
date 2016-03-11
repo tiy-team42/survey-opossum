@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+  <%= f.hidden_field :author_id, value: session[:user_id] %>
+
   <div class="new-survey-wrap">
   <div class="questions-header-bg">
   <div class="title-auth-wrap">
@@ -19,10 +21,10 @@
         <%= f.text_field :title, :class => 'survey-field' %>
       </div>
 
-      <div class="field">
+      <!-- <div class="field">
         <%= f.label 'Survey Author:' %><br>
         <%= f.number_field :author_id, :class => 'survey-field' %>
-      </div>
+      </div> -->
     </div>
     <div class="desc-wrap">
       <div class="field survey-description">
@@ -34,22 +36,15 @@
 
 <div class='question-wrap'>
 <div class='pick-question'>
-<%= f.fields_for :survey_questions do |ff| %>
-    <div>
-      <span class='q-txt'>QUESTION: <%= ff.text_field :text, :placeholder => "ASK YOUR QUESTION HERE", :class => 'q-field' %></span>
-
-    <span class='q-options'>
-      <span class='q-required'>Is this Question Required?: <%= ff.check_box :required %></span>
-
-      <span class='q-type'>  This Question is a: <%= ff.select :question_type, [["Yes No", "BooleanQuestion"], ["Short Answer", "ShortAnswerQuestion"], ["Long Answer", "LongAnswerQuestion"]], prompt: "Select question type..." %></span>
-    </span>
+    <%= render 'questions_fields' %>
     </div>
   </div>
 </div>
 
-THIS SECTION SHOULD ONLY SHOW IF THE USER SELECTED A BOOLEAN QUESTION TYPE
-Add question options, comma separated. The first answer should be the "Yes" option.
-<%= ff.text_field :answer_options, value: "Yes, No" %>
+
+
+  <%= add_child_button "New Question", :survey_questions, "#survey_questions" %>
+
 
 
   <div class="field survey-publish">
@@ -58,7 +53,7 @@ Add question options, comma separated. The first answer should be the "Yes" opti
   </div>
 
 
-  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
