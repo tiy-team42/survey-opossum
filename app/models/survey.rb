@@ -6,9 +6,10 @@ class Survey < ActiveRecord::Base
   has_many :long_answer_questions, through: :survey_questions
 
 
+
   accepts_nested_attributes_for :survey_questions,
      reject_if: :all_blank,
      allow_destroy: true
 
-     
+
 end

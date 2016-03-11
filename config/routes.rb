@@ -10,11 +10,13 @@ Rails.application.routes.draw do
   end
   resources :authors
   resources :sessions, except: :show
+  # resources :results
 
   root 'surveys#index'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+  get 'results/:id'=> 'results#show'
   get 'sessions/index'
 
 

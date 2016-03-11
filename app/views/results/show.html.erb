@@ -1,2 +1,18 @@
 <h1>Results#show</h1>
 <p>Find me in app/views/results/show.html.erb</p>
+
+<%= @questions.each do |q| %>
+<%  if q.is_boolean? %>
+<%    q.boolean_questions.each do |a| %>
+<%=      a.answer %>
+<%    end %>
+<%  elsif q.is_short_answer? %>
+<%    q.boolean_questions.each do |a| %>
+<%=      a.answer %>
+<%    end %>
+<%  elsif q.is_long_answer? %>
+<%    q.boolean_questions.each do |a| %>
+<%=      a.answer %>
+<%    end %>
+<%  end %>
+<% end %>
