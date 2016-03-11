@@ -2,9 +2,6 @@ class ShortAnswerQuestionsController < ApplicationController
   before_action :logged_in?
   before_action :set_short_answer_question, only: [:show, :edit, :update, :destroy]
 
-  def logged_in?
-    redirect_to login_path, notice: "You must log in to access this page." unless session[:user_id]
-  end
   # GET /short_answer_questions
   def index
     @short_answer_questions = ShortAnswerQuestion.all
