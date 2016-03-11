@@ -1,3 +1,19 @@
 // Place all the styles related to the Authors controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$primary-color: #92c6c1;
+$bg-color: white;
+$question-color: #d9e6ff;
+$survey-bg: whitesmoke;
+
+.landing-header{
+  font-family: 'lato', sans-serif;
+  font-size: 2em;
+  text-align: center;
+  font-weight: 300;
+  background-color: darken($primary-color, 25%);
+  margin: 132px 0 0 1px;
+  padding: 1.5% 0 1.5% 0;
+  color: $bg-color;
+  border-bottom: 3px solid $primary-color;
+}
