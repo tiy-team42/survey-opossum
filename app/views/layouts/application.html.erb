@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HW031016</title>
+  <title>Survey Opossum</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <header class="app-header">
-        S U R V E Y&nbsp; &nbsp;&nbsp; &nbsp;<i class="fa fa-paw"></i>&nbsp; &nbsp; &nbsp;&nbsp;O P O S S U M
+    <header class="app-header-wrap">
+      <span class="app-header-text">
+         S U R V E Y&nbsp; &nbsp;&nbsp; &nbsp;<i class="fa fa-paw"></i>&nbsp; &nbsp; &nbsp;&nbsp;O P O S S U M
+      </span>
     </header>
 <%= yield %>
 

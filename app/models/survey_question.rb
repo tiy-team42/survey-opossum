@@ -20,4 +20,8 @@ class SurveyQuestion < ActiveRecord::Base
     question_type == "LongAnswerQuestion"
   end
 
+  def choices
+    answer_options.split(",")
+  end
+
 end
