@@ -16,15 +16,19 @@ class SurveysController < ApplicationController
 
   #only show if published
   def show
-    @survey_questions = @survey.survey_questions
-    @survey_questions.each_with_index do |q, i|
-      if q.is_boolean?
-        @survey_questions[i].boolean_questions.build
-      elsif  q.is_short_answer?
-        @survey_questions[i].short_answer_questions.build
-      elsif  q.is_long_answer?
-        @survey_questions[i].long_answer_questions.build
-      end
+    if session[:user_id] == @survey.author_id || @survey.published
+        @survey_questions = @survey.survey_questions
+        @survey_questions.each_with_index do |q, i|
+          if q.is_boolean?
+            @survey_questions[i].boolean_questions.build
+          elsif  q.is_short_answer?
+            @survey_questions[i].short_answer_questions.build
+          elsif  q.is_long_answer?
+            @survey_questions[i].long_answer_questions.build
+          end
+        end
+    else
+      redirect_to root_path notice: "That's not a valid survey."
     end
   end
 
