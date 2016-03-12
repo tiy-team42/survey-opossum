@@ -1,4 +1,4 @@
-class LongAnswerQuestion < ActiveRecord::Base
+class DropdownQuestion < ActiveRecord::Base
   belongs_to :survey_question
   validate :is_required, on: :create
 

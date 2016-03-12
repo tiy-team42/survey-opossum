@@ -21,10 +21,6 @@
         <%= f.text_field :title, :class => 'survey-field' %>
       </div>
 
-      <!-- <div class="field">
-        <%= f.label 'Survey Author:' %><br>
-        <%= f.number_field :author_id, :class => 'survey-field' %>
-      </div> -->
     </div>
     <div class="desc-wrap">
       <div class="field survey-description">
@@ -48,14 +44,13 @@
     <span class='q-options'>
       <span class='q-required'>Is this Question Required?: <%= ff.check_box :required %></span>
 
-      <span class='q-type'>  This Question is a: <%= ff.select :question_type, [["Yes No", "BooleanQuestion"], ["Short Answer", "ShortAnswerQuestion"], ["Long Answer", "LongAnswerQuestion"]], prompt: "Select question type..." %></span>
+      <span class='q-type'>  This Question is a: <%= ff.select :question_type, [["Yes No", "BooleanQuestion"], ["Short Answer", "ShortAnswerQuestion"], ["Long Answer", "LongAnswerQuestion"], ["Multiple Choice Dropdown", "DropdownQuestion"] ], prompt: "Select question type..." %></span>
     </span>
 
     <span class='hidden'>
-    THIS SECTION SHOULD ONLY SHOW IF THE USER SELECTED A BOOLEAN QUESTION TYPE
-    Add question options, comma separated. The first answer should be the "Yes" option.
+    THIS SECTION SHOULD ONLY SHOW IF THE USER SELECTED A BOOLEAN QUESTION TYPE OR A DROPDOWN QUESTION TYPE
+    Add options, comma separated. For Yes/No questions, add two values. The first answer should be the "Yes" option. For multiple choice, add as many as you'd like!
     <%= ff.text_field :answer_options, value: "Yes, No" %></span>
-    <%= ff.text_field :answer_options, value: "Yes, No" %>
     <!-- END OF HTML BLOCK THAT SHOULD BE ADDED WHEN NEW ITEM IS CLICKED-->
 
 

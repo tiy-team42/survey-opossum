@@ -25,6 +25,8 @@ class SurveysController < ApplicationController
             @survey_questions[i].short_answer_questions.build
           elsif  q.is_long_answer?
             @survey_questions[i].long_answer_questions.build
+          elsif  q.is_dropdown?
+            @survey_questions[i].dropdown_questions.build
           end
         end
     else
@@ -81,6 +83,6 @@ class SurveysController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def survey_params
-      params.require(:survey).permit(:title, :description, :author_id, :published, survey_questions_attributes: [:id, :text, :required, :question_type, :answer_options, :_destroy, :boolean_questions_attributes => [:id, :answer], :short_answer_questions_attributes => [:id, :answer], :long_answer_questions_attributes => [:id, :answer]])
+      params.require(:survey).permit(:title, :description, :author_id, :published, survey_questions_attributes: [:id, :text, :required, :question_type, :answer_options, :_destroy, :boolean_questions_attributes => [:id, :answer], :short_answer_questions_attributes => [:id, :answer], :long_answer_questions_attributes => [:id, :answer], :dropdown_questions_attributes => [:id, :answer]])
     end
 end

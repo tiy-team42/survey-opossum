@@ -3,10 +3,12 @@ class SurveyQuestion < ActiveRecord::Base
   has_many :boolean_questions
   has_many :long_answer_questions
   has_many :short_answer_questions
+  has_many :dropdown_questions
 
   accepts_nested_attributes_for :boolean_questions
   accepts_nested_attributes_for :short_answer_questions
   accepts_nested_attributes_for :long_answer_questions
+  accepts_nested_attributes_for :dropdown_questions
 
   validates :question_type, presence: true
   validates :text, presence: true
@@ -21,6 +23,10 @@ class SurveyQuestion < ActiveRecord::Base
 
   def is_long_answer?
     question_type == "LongAnswerQuestion"
+  end
+
+  def is_dropdown?
+    question_type == "DropdownQuestion"
   end
 
   def choices

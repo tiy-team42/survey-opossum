@@ -3,7 +3,8 @@ class ShortAnswerQuestion < ActiveRecord::Base
   validate :is_required, on: :create
 
   def is_required
-    errors.add(:answer, "This is a required field") unless !survey_question.required
-  end
+    if answer.empty? && survey_question.required
+      errors.add(:answer, "This is a required field")
+    end
 
 end

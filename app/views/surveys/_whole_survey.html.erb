@@ -40,6 +40,12 @@
                   <%= ff.text_area :answer, placeholder: "Answer goes here..." %>
                 </div>
               <% end %>
+          <% elsif survey_question.is_dropdown? %>
+              <%= q.fields_for :dropdown_questions, survey_question.dropdown_questions.build do |ff| %>
+                <div>
+                  <%= ff.select :answer, survey_question.choices, :include_blank => true %>
+                </div>
+              <% end %>
           <% else %>
             No question type
           <% end %>

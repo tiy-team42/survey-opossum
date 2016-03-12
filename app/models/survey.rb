@@ -6,6 +6,8 @@ class Survey < ActiveRecord::Base
   has_many :boolean_questions, through: :survey_questions
   has_many :short_answer_questions, through: :survey_questions
   has_many :long_answer_questions, through: :survey_questions
+  has_many :dropdown_questions, through: :survey_questions
+
 
 
   accepts_nested_attributes_for :survey_questions,
