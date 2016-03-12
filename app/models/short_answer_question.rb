@@ -6,5 +6,6 @@ class ShortAnswerQuestion < ActiveRecord::Base
     if answer.empty? && survey_question.required
       errors.add(:answer, "This is a required field")
     end
+  end  
 
 end
