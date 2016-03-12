@@ -47,6 +47,14 @@ $survey-bg: whitesmoke;
         display: inline-block;
       }
     }
+    .login-name{
+      margin: 2% 0 0 0;
+      display: block;
+      .login-password-field{
+        width: 90%;
+        display: inline-block;
+      }
+    }
     .login-submit{
       display: block;
       margin: 40% 0 0 0;

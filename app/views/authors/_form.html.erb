@@ -11,18 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.email_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
+   <span class='login-email'>
+    <%= f.label :'Email Address', :class => 'login-email-field'%><br>
+    <%= f.email_field :email, placeholder: "Email", :class => 'login-email-field' %>
+</span>
+  <span class="login-name">
+    <%= f.label :'Password', :class => 'login-email-field' %><br>
+    <%= f.password_field :password, placeholder: "Password", :class => 'login-password-field'  %>
+</span>
+  <span class="login-name">
+    <%= f.label :'Name', :class => 'login-email-field' %><br>
+    <%= f.text_field :name, placeholder: "name", :class => 'login-password-field'  %>
+</span>
   <div class="actions">
     <%= f.submit %>
   </div>
