@@ -28,7 +28,7 @@ class SurveysController < ApplicationController
           end
         end
     else
-      redirect_to root_path, notice: "That's not a valid survey."
+      redirect_to root_path, alert: "That's not a valid survey."
     end
   end
 
@@ -41,7 +41,7 @@ class SurveysController < ApplicationController
   # GET /surveys/1/edit
   def edit
     if @survey.has_responses?
-      redirect_to surveys_path, notice: "Sorry, that survey can't be edited. It already has responses."
+      redirect_to surveys_path, alert: "Sorry, that survey can't be edited. It already has responses."
     else
       @survey.survey_questions.build
     end
@@ -62,7 +62,7 @@ class SurveysController < ApplicationController
     if @survey.update(survey_params)
       redirect_to @survey, notice: 'Survey was successfully updated.'
     else
-      flash[:notice] = "Make sure all required fields are filled out!"
+      flash[:alert] = "Make sure all required fields are filled out!"
       redirect_to :back
     end
   end

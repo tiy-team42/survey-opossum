@@ -8,6 +8,9 @@ class SurveyQuestion < ActiveRecord::Base
   accepts_nested_attributes_for :short_answer_questions
   accepts_nested_attributes_for :long_answer_questions
 
+  validates :question_type, presence: true
+  validates :text, presence: true
+
   def is_boolean?
     question_type == "BooleanQuestion"
   end

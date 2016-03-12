@@ -1,10 +1,11 @@
 class Survey < ActiveRecord::Base
+  validates :title, presence: true
+
   belongs_to :author
   has_many :survey_questions
   has_many :boolean_questions, through: :survey_questions
   has_many :short_answer_questions, through: :survey_questions
   has_many :long_answer_questions, through: :survey_questions
-
 
 
   accepts_nested_attributes_for :survey_questions,
