@@ -41,6 +41,7 @@
 
         <!-- START OF HTML BLOCK THAT SHOULD BE ADDED WHEN NEW ITEM IS CLICKED -->
         <div class='pick-question' id='question0'>
+          <span class='move-up'>^</span><span class='move-down'>D</span>
           <span class='q-txt'>
             QUESTION: <%= ff.text_field :text, :placeholder => "ASK YOUR QUESTION HERE", :class => 'q-field' %>
           </span>
@@ -53,7 +54,7 @@
             <span class='q-type'>
               This Question is a: <%= ff.select :question_type, [["Yes No", "BooleanQuestion"], ["Short Answer", "ShortAnswerQuestion"], ["Long Answer", "LongAnswerQuestion"], ["Multiple Choice Dropdown", "DropdownQuestion"] ], prompt: "Select question type..." %>
             </span>
-              Remove? <%= ff.check_box :_destroy, :class => 'q-remove'  %> 
+              Remove? <%= ff.check_box :_destroy, :class => 'q-remove'  %>
           </span>
 
         <span class='hidden'>
