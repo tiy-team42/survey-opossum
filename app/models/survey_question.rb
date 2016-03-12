@@ -29,6 +29,20 @@ class SurveyQuestion < ActiveRecord::Base
     question_type == "DropdownQuestion"
   end
 
+
+  def responses
+    if is_boolean?
+      @responses = boolean_questions.map {|a| a.answer }
+    elsif is_short_answer?
+      @responses = short_answer_questions.map {|a| a.answer }
+    elsif is_long_answer?
+      @responses = long_answer_questions.map {|a| a.answer }
+    end
+    @responses || ["No Responses Yet"]
+  end
+
+
+
   def choices
     answer_options.split(",")
   end
