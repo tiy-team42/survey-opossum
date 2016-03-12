@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
   resources :authors
   resources :sessions, except: :show
-  # resources :results
+  resources :results
 
   root 'surveys#index'
   get 'login' => 'sessions#new'

@@ -62,7 +62,8 @@ class SurveysController < ApplicationController
     if @survey.update(survey_params)
       redirect_to @survey, notice: 'Survey was successfully updated.'
     else
-      render :edit
+      flash[:notice] = "Make sure all required fields are filled out!"
+      redirect_to :back
     end
   end
 

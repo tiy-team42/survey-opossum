@@ -27,7 +27,7 @@ class ShortAnswerQuestionsController < ApplicationController
     if @short_answer_question.save
       redirect_to @short_answer_question, notice: 'Short answer question was successfully created.'
     else
-      render :new
+      redirect_to :back
     end
   end
 
