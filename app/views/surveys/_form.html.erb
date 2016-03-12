@@ -36,6 +36,7 @@
       </div>
   </div>
 
+
     <div class='question-wrap'>
         <%= f.fields_for :survey_questions do |ff| %>
 
@@ -66,10 +67,9 @@
             <%= ff.text_field :position, :class => 'q-position' %></span>
 
         <% end %>
-      </div>
         <!-- END OF HTML BLOCK THAT SHOULD BE ADDED WHEN NEW ITEM IS CLICKED-->
     </div>
-
+</div>
     <div class="field survey-publish">
       <%= f.label 'Would you like this survey to be publicly available?' %><br>
       <%= f.check_box :published, :class => 'pub-check'  %>

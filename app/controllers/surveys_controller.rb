@@ -51,7 +51,7 @@ class SurveysController < ApplicationController
     if @survey.has_responses?
       redirect_to surveys_path, alert: "Sorry, that survey can't be edited. It already has responses."
     else
-      @survey.survey_questions.build
+      @survey.survey_questions
     end
   end
 
