@@ -6,6 +6,23 @@ $bg-color: white;
 $question-color: #d9e6ff;
 $survey-bg: whitesmoke;
 
+
+.new-author-title {
+    margin: 132px  0 0 .05%;
+    font-family: 'lato', sans-serif;
+    font-weight: 300;
+    padding: 1%  0 1% 37%;
+    width: 62.95%;
+    border-bottom: solid 3px $primary-color;
+    background-color: darken($primary-color, 25%);
+    color: $bg-color;
+    font-size: .75em;
+    overflow: scroll;
+  }
+
+.author-container {
+    margin: 0 30% 0 20%;
+
 .landing-header{
   font-family: 'lato', sans-serif;
   font-size: 2em;
@@ -63,4 +80,5 @@ $survey-bg: whitesmoke;
       }
     }
   }
+}
 }
