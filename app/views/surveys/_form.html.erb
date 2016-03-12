@@ -14,71 +14,71 @@
   <%= f.hidden_field :author_id, value: session[:user_id] %>
 
   <div class="new-survey-wrap">
-  <div class="questions-header-bg">
-  <div class="title-auth-wrap">
-      <div class="field">
-        <%= f.label 'Survey Title:', :class => 'survey-form-text' %><br>
-        <%= f.text_field :title, :class => 'survey-field' %>
+
+    <div class="questions-header-bg">
+
+      <div class="title-auth-wrap">
+        <div class="field">
+          <%= f.label 'Survey Title:', :class => 'survey-form-text' %><br>
+          <%= f.text_field :title, :class => 'survey-field' %>
+        </div>
       </div>
 
-    </div>
-    <div class="desc-wrap">
-      <div class="field survey-description">
-        <%= f.label 'Survey description:' %><br>
-        <%= f.text_area :description, :class => 'survey-area' %>
+      <div class="desc-wrap">
+        <div class="field survey-description">
+          <%= f.label 'Survey description:' %><br>
+          <%= f.text_area :description, :class => 'survey-area' %>
+        </div>
       </div>
+
+      <div class='add-question'>
+        <span class='add-btn-txt'>ADD A QUESTION</span>
+      </div>
+  </div>
+
+    <div class='question-wrap'>
+        <%= f.fields_for :survey_questions do |ff| %>
+
+        <!-- START OF HTML BLOCK THAT SHOULD BE ADDED WHEN NEW ITEM IS CLICKED -->
+        <div class='pick-question' id='question0'>
+          <span class='move-up'>^</span><span class='move-down'>D</span>
+          <span class='q-txt'>
+            QUESTION: <%= ff.text_field :text, :placeholder => "ASK YOUR QUESTION HERE", :class => 'q-field' %>
+          </span>
+
+          <span class='q-options'>
+            <span class='q-required'>
+              Required?: <%= ff.check_box :required %>
+            </span>
+
+            <span class='q-type'>
+              This Question is a: <%= ff.select :question_type, [["Yes No", "BooleanQuestion"], ["Short Answer", "ShortAnswerQuestion"], ["Long Answer", "LongAnswerQuestion"], ["Multiple Choice Dropdown", "DropdownQuestion"] ], prompt: "Select question type..." %>
+            </span>
+              Remove? <%= ff.check_box :_destroy, :class => 'q-remove'  %>
+          </span>
+
+        <span class='hidden'>
+          THIS SECTION SHOULD ONLY SHOW IF THE USER SELECTED A BOOLEAN QUESTION TYPE OR A DROPDOWN QUESTION TYPE
+          Add options, comma separated. For Yes/No questions, add two values. The first answer should be the "Yes" option. For multiple choice, add as many as you'd like!
+          <%= ff.text_field :answer_options, value: "Yes, No" %></span>
+          <span class='hidden'>
+            <!-- This is the field where the position value should be stored. Pass the position in as a value, pls! -->
+            <%= ff.text_field :position %></span>
+
+        <% end %>
+      </div>
+        <!-- END OF HTML BLOCK THAT SHOULD BE ADDED WHEN NEW ITEM IS CLICKED-->
     </div>
-    <div class='add-question'>
-      <span class='add-btn-txt'>add a question</span>
-      <%= button_tag%>
-    </div>
-</div>
 
-<div class='question-wrap'>
-<div class='pick-question'>
-    <%= f.fields_for :survey_questions do |ff| %>
-    <!-- START OF HTML BLOCK THAT SHOULD BE ADDED WHEN NEW ITEM IS CLICKED -->
-    <div>
-      <span class='q-txt'>QUESTION: <%= ff.text_field :text, :placeholder => "ASK YOUR QUESTION HERE", :class => 'q-field' %></span>
-
-    <span class='q-options'>
-      <span class='q-required'>Required?: <%= ff.check_box :required %></span>
-
-      <span class='q-type'>  This Question is a: <%= ff.select :question_type, [["Yes No", "BooleanQuestion"], ["Short Answer", "ShortAnswerQuestion"], ["Long Answer", "LongAnswerQuestion"], ["Multiple Choice Dropdown", "DropdownQuestion"] ], prompt: "Select question type..." %></span>
-    </span>
-
-    <span class='hidden'>
-    THIS SECTION SHOULD ONLY SHOW IF THE USER SELECTED A BOOLEAN QUESTION TYPE OR A DROPDOWN QUESTION TYPE
-    Add options, comma separated. For Yes/No questions, add two values. The first answer should be the "Yes" option. For multiple choice, add as many as you'd like!
-    <%= ff.text_field :answer_options, value: "Yes, No" %></span>
-    <%= ff.check_box :_destroy %> Remove
-
-    <!-- END OF HTML BLOCK THAT SHOULD BE ADDED WHEN NEW ITEM IS CLICKED-->
-
-
-
-    <% end %>
-
-
+    <div class="field survey-publish">
+      <%= f.label 'Would you like this survey to be publicly available?' %><br>
+      <%= f.check_box :published, :class => 'pub-check'  %>
     </div>
 
-<!-- <input placeholder="ASK YOUR QUESTION HERE" class="q-field" type="text" name="survey[survey_questions_attributes][1][text]" id="survey_survey_questions_attributes_1_text"> -->
 
 
-
-
-
-
-  <div class="field survey-publish">
-    <%= f.label 'Would you like this survey to be publicly available?' %><br>
-    <%= f.check_box :published, :class => 'pub-check'  %>
+      <div class="actions">
         <%= f.submit %>
-  </div>
-
-
-
-  <div class="actions">
-
-  </div>
-<% end %>
+      </div>
+    <% end %>
 </div>
