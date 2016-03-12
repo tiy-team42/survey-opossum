@@ -61,6 +61,10 @@
           THIS SECTION SHOULD ONLY SHOW IF THE USER SELECTED A BOOLEAN QUESTION TYPE OR A DROPDOWN QUESTION TYPE
           Add options, comma separated. For Yes/No questions, add two values. The first answer should be the "Yes" option. For multiple choice, add as many as you'd like!
           <%= ff.text_field :answer_options, value: "Yes, No" %></span>
+          <span class='hidden'>
+            <!-- This is the field where the position value should be stored. Pass the position in as a value, pls! -->
+            <%= ff.text_field :position %></span>
+
         <% end %>
       </div>
         <!-- END OF HTML BLOCK THAT SHOULD BE ADDED WHEN NEW ITEM IS CLICKED-->
