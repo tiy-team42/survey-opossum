@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+  <% unless @survey.published %>
+    <%= "Don't add answers unless you're ready to publish the survey! You won't be able to edit it if you add answers!" %>
+  <% end %>
+  <br>
+
   <% @survey_questions.each do |survey_question| %>
     <%= survey_question.text  %>
     Required?: <%= survey_question.required %>
@@ -33,6 +38,12 @@
               <%= q.fields_for :long_answer_questions, survey_question.long_answer_questions.build do |ff| %>
                 <div>
                   <%= ff.text_area :answer, placeholder: "Answer goes here..." %>
+                </div>
+              <% end %>
+          <% elsif survey_question.is_dropdown? %>
+              <%= q.fields_for :dropdown_questions, survey_question.dropdown_questions.build do |ff| %>
+                <div>
+                  <%= ff.select :answer, survey_question.choices, :include_blank => true %>
                 </div>
               <% end %>
           <% else %>

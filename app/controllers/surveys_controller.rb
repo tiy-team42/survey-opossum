@@ -25,11 +25,19 @@ class SurveysController < ApplicationController
             @survey_questions[i].short_answer_questions.build
           elsif  q.is_long_answer?
             @survey_questions[i].long_answer_questions.build
+          elsif  q.is_dropdown?
+            @survey_questions[i].dropdown_questions.build
           end
         end
     else
-      redirect_to root_path, notice: "That's not a valid survey."
+      redirect_to root_path, alert: "That's not a valid survey."
     end
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @survey.to_csv, filename: "survey_results-#{Date.today}.csv"}
+    end
+
   end
 
   # GET /surveys/new
@@ -41,7 +49,7 @@ class SurveysController < ApplicationController
   # GET /surveys/1/edit
   def edit
     if @survey.has_responses?
-      redirect_to surveys_path, notice: "Sorry, that survey can't be edited. It already has responses."
+      redirect_to surveys_path, alert: "Sorry, that survey can't be edited. It already has responses."
     else
       @survey.survey_questions.build
     end
@@ -62,7 +70,8 @@ class SurveysController < ApplicationController
     if @survey.update(survey_params)
       redirect_to @survey, notice: 'Survey was successfully updated.'
     else
-      render :edit
+      flash[:alert] = "Make sure all required fields are filled out!"
+      redirect_to :back
     end
   end
 
@@ -80,6 +89,6 @@ class SurveysController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def survey_params
-      params.require(:survey).permit(:title, :description, :author_id, :published, survey_questions_attributes: [:id, :text, :required, :question_type, :answer_options, :_destroy, :boolean_questions_attributes => [:id, :answer], :short_answer_questions_attributes => [:id, :answer], :long_answer_questions_attributes => [:id, :answer]])
+      params.require(:survey).permit(:title, :description, :author_id, :published, survey_questions_attributes: [:id, :text, :required, :question_type, :answer_options, :_destroy, :boolean_questions_attributes => [:id, :answer], :short_answer_questions_attributes => [:id, :answer], :long_answer_questions_attributes => [:id, :answer], :dropdown_questions_attributes => [:id, :answer]])
     end
 end

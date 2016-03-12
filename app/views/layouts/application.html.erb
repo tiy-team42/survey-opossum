@@ -15,12 +15,22 @@
       </span>
     </header>
 <p id="notice"><%= notice %></p>
+<p id="alert"><%= alert %></p>
+
+
+
 
 <%= yield %>
 
 <footer class="app-footer">
   <span class="app-footer-paw"><i class="fa fa-paw"></i></span>
   <span class="app-footer-text">&copy;MMXVI Team 42</span>
+  <% if session[:user_id] %>
+    <%= link_to "Logout", logout_path, method: :delete %>
+  <% else %>
+    <%= link_to "Login", login_path  %>
+  <% end %>
+
 </footer>
 </body>
 </html>
