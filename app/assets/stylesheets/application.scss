@@ -40,7 +40,7 @@ $survey-bg: whitesmoke;
     }
   }
 .app-footer{
-  position: absolute;
+  position: fixed;
   bottom: 0;
   color: $primary-color;
   background-color: darken($primary-color, 25%);
