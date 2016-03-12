@@ -8,6 +8,7 @@ class ResultsController < ApplicationController
     else
       redirect_to root_path,  notice: "That's not a valid results page."
     end
+
   end
 
 

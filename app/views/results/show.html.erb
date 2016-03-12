@@ -1,23 +1,10 @@
 <h1>Results</h1>
-
 <% @questions.each do |q| %>
   <h2>
     <%= q.text %>
   </h2>
-  <%  if q.is_boolean? %>
-    <%  q.boolean_questions.each do |a| %>
-      <%= a.answer %>
-      <br>
-      <%  end %>
-  <%  elsif q.is_short_answer? %>
-    <%  q.short_answer_questions.each do |a| %>
-      <%= a.answer %>
-      <br>
-    <%  end %>
-  <%  elsif q.is_long_answer? %>
-    <%  q.long_answer_questions.each do |a| %>
-      <%= a.answer %>
-      <br>
+    <% q.responses.each do |response| %>
+      <%= response %>
     <% end %>
-  <% end %>
 <% end %>
+<%= link_to "Download Results", survey_path(format: :csv) %>
