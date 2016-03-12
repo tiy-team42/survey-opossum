@@ -3,10 +3,9 @@
   <span class="landing-txt">W E L C O M E</span>
 </div>
 <h1>You're not from around here, are you?</h1>
-<%= link_to authors_path %>
+<%= link_to "Create an account", new_author_path %>
 
 <h1>Already a user?</h1>
-<h4>Go here</h4>
-<%= link_to login_path %>
+<h4> <%= link_to "Login", login_path %> </h4>
 
-<%= link_to "Logout! Now!", logout_path, method: :delete %>
+<%= link_to "Logout! Now!", logout_path, method: :delete if session[:user_id] %>

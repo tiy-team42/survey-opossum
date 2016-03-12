@@ -1,5 +1,5 @@
 class AuthorsController < ApplicationController
-  before_action :logged_in?
+  before_action :logged_in?, except: [:new, :create]
   before_action :set_author, only: [:show, :edit, :update, :destroy]
 
   # GET /authors
@@ -25,7 +25,7 @@ class AuthorsController < ApplicationController
     @author = Author.new(author_params)
 
     if @author.save
-      redirect_to @author, notice: 'Author was successfully created.'
+      redirect_to login_path, notice: 'Great! Please log in.'
     else
       render :new
     end
@@ -54,6 +54,6 @@ class AuthorsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def author_params
-      params.require(:author).permit(:email, :password_digest, :name)
+      params.require(:author).permit(:email, :password, :name)
     end
 end

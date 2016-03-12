@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+  <% unless @survey.published %>
+    <%= "Don't add answers unless you're ready to publish the survey! You won't be able to edit it if you add answers!" %>
+  <% end %>
+  <br>
+
   <% @survey_questions.each do |survey_question| %>
     <%= survey_question.text  %>
     Required?: <%= survey_question.required %>

@@ -10,12 +10,12 @@
       <br>
       <%  end %>
   <%  elsif q.is_short_answer? %>
-    <%  q.boolean_questions.each do |a| %>
+    <%  q.short_answer_questions.each do |a| %>
       <%= a.answer %>
       <br>
     <%  end %>
   <%  elsif q.is_long_answer? %>
-    <%  q.boolean_questions.each do |a| %>
+    <%  q.long_answer_questions.each do |a| %>
       <%= a.answer %>
       <br>
     <% end %>
