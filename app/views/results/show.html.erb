@@ -1,5 +1,4 @@
 <h1>Results</h1>
-
 <% @questions.each do |q| %>
   <h2>
     <%= q.text %>
@@ -21,3 +20,4 @@
     <% end %>
   <% end %>
 <% end %>
+<%= link_to "Download Results", survey_path(format: :csv) %>

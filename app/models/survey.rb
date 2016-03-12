@@ -19,4 +19,16 @@ class Survey < ActiveRecord::Base
    survey_questions.any? {|q| q.boolean_questions.count > 0 || q.short_answer_questions.count > 0 || q.long_answer_questions.count > 0 }
   end
 
+  def question_text
+    survey_questions.map {|q| q.text}
+  end
+
+  def to_csv
+    attributes = %w{question_text}
+
+    CSV.generate(headers: true) do |csv|
+      csv << attributes.map {|attr| send(attr) }
+    end
+  end
+
 end

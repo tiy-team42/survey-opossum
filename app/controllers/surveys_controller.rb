@@ -32,6 +32,12 @@ class SurveysController < ApplicationController
     else
       redirect_to root_path, alert: "That's not a valid survey."
     end
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @survey.to_csv, filename: "survey_results-#{Date.today}.csv"}
+    end
+
   end
 
   # GET /surveys/new
