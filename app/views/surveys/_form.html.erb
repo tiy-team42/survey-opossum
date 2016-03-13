@@ -38,7 +38,7 @@
 
 
     <div class='question-wrap'>
-      <% @survey.survey_questions.each_with_index do |question, index| %>
+      <% @survey_questions.each_with_index do |question, index| %>
         <%= f.fields_for :survey_questions, question do |ff| %>
 
         <!-- START OF HTML BLOCK THAT SHOULD BE ADDED WHEN NEW ITEM IS CLICKED -->

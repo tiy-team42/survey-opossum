@@ -17,7 +17,7 @@ class SurveysController < ApplicationController
   #only show if published
   def show
     if session[:user_id] == @survey.author_id || @survey.published
-        @survey_questions = @survey.survey_questions
+        @survey_questions = @survey.survey_questions.order(:position)
         @survey_questions.each_with_index do |q, i|
           if q.is_boolean?
             @survey_questions[i].boolean_questions.build
@@ -29,14 +29,14 @@ class SurveysController < ApplicationController
             @survey_questions[i].dropdown_questions.build
           end
         end
+        respond_to do |format|
+          format.html
+          format.csv { send_data @survey.to_csv, filename: "survey_results-#{Date.today}.csv"}
+        end
     else
       redirect_to root_path, alert: "That's not a valid survey."
     end
 
-    respond_to do |format|
-      format.html
-      format.csv { send_data @survey.to_csv, filename: "survey_results-#{Date.today}.csv"}
-    end
 
   end
 
@@ -51,7 +51,7 @@ class SurveysController < ApplicationController
     if @survey.has_responses?
       redirect_to surveys_path, alert: "Sorry, that survey can't be edited. It already has responses."
     else
-      @survey.survey_questions
+      @survey_questions = @survey.survey_questions.order(:position)
     end
   end
 

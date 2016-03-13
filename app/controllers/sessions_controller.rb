@@ -15,13 +15,13 @@ class SessionsController < ApplicationController
       session[:user_id] = author.id
       redirect_to root_path, notice: "Login successful"
     else
-      flash[:notice] = "You didn't remember your password"
+      flash[:notice] = "Invalid username or email. Please try again."
       render "new"
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to sessions_path, notice: 'Session was successfully destroyed.'
+    redirect_to sessions_path, notice: "You've successfully logged out!"
   end
 end
