@@ -19,22 +19,23 @@
 
       <div class="title-auth-wrap">
         <div class="field">
-          <%= f.label 'Survey Title:', :class => 'survey-form-text' %><br>
-          <%= f.text_field :title, :class => 'survey-field' %>
+          <%= f.label ' ', :class => 'survey-form-text' %><br>
+          <%= f.text_field :title,:class => 'survey-field', :placeholder => "SURVEY TITLE" %>
         </div>
       </div>
 
       <div class="desc-wrap">
         <div class="field survey-description">
-          <%= f.label 'Survey description:' %><br>
-          <%= f.text_area :description, :class => 'survey-area' %>
+          <%= f.label ' ' %><br>
+          <%= f.text_area :description, :class => 'survey-area', :placeholder => "SURVEY DESCRIPTION" %>
         </div>
       </div>
 
       <div class='add-question'>
-        <span class='add-btn-txt'>ADD A QUESTION</span>
+        <span class='add-btn-txt'>ADD  A  QUESTION</span>
       </div>
   </div>
+
 
     <div class='question-wrap'>
         <%= f.fields_for :survey_questions do |ff| %>
@@ -63,22 +64,22 @@
           <%= ff.text_field :answer_options, value: "Yes, No" %></span>
           <span class='hidden'>
             <!-- This is the field where the position value should be stored. Pass the position in as a value, pls! -->
-            <%= ff.text_field :position %></span>
+            <%= ff.text_field :position, :class => 'q-position' %></span>
 
         <% end %>
-      </div>
         <!-- END OF HTML BLOCK THAT SHOULD BE ADDED WHEN NEW ITEM IS CLICKED-->
     </div>
-
+</div>
     <div class="field survey-publish">
-      <%= f.label 'Would you like this survey to be publicly available?' %><br>
+      <%= f.label 'Would you like this survey to be publicly available?' %>
       <%= f.check_box :published, :class => 'pub-check'  %>
+      <%= f.submit %>
     </div>
 
 
 
-      <div class="actions">
+      <!-- <div class="actions">
         <%= f.submit %>
-      </div>
+      </div> -->
     <% end %>
 </div>
