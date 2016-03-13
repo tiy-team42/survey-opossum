@@ -41,7 +41,7 @@ $('.question-wrap').on('click', '.move-up', function(){
   $(this).parents('.pick-question').insertBefore($(this).parents('.pick-question').prev());
   questionPosition()
     });
-});
+
 
 //this function moves questions down
 $('.question-wrap').on('click', '.move-down', function(){
@@ -59,5 +59,6 @@ function doWhatMyHeartTellsMe(){
 function questionPosition(){
   $('.q-position').each(function(index){
   $(this).val(index);
+  })
 };
 });//close iify
