@@ -19,8 +19,6 @@ body{
     background-color: darken($primary-color, 25%);
     color: $bg-color;
     font-size: .75em;
-
-
   }
   .new-survey-wrap{
     margin: 0 0 0 .05%;
@@ -30,26 +28,43 @@ body{
     width: 98.85%;
     height: 68.5%;
     .questions-header-bg{
-      padding: 1% 0 .2% 0;
+      padding: 0 0 .2% 0;
       background-color: darken($survey-bg, 3%);
-      border-bottom: solid thin darken($survey-bg, 10%);
+      border-bottom: solid thin darken($survey-bg, 20%);
       .title-auth-wrap{
         width: 50%;
+        .survey-field{
+          margin: 0 0 0 .5%;
+          display: inline-block;
+          width: 200%;
+          line-height: 2em;
+          font-size: 1.3em;
+          border-radius: .5em;
+          border-style: none;
+          color: darken($primary-color, 40%)
+        }
       }
 
       .desc-wrap{
         width:49%;
         float: right;
-        margin: -4.1% 0 0 0;
+        margin: -6.1% .5% 0 0;
+        .survey-area{
+          font-size: 1.05em;
+          border-style: none;
+          height: 105px;
+          border-radius: .5em;
+        }
       }
       .add-question{
-        margin: 2% 45% 0 40%;
-        background-color: darken($primary-color, 15%);
+        margin: .5% 52.2% .5% .5%;
+        background-color: darken($primary-color, 5%);
         text-align: center;
         color: $bg-color;
-        padding: .25% 0;
+        padding: .75% 0;
         font-family: 'lato', 'sans-serif';
         border: solid 2px $primary-color;
+        border-radius: .5em;
       }
     }
     .question-wrap{
@@ -57,9 +72,9 @@ body{
       overflow: scroll;
       position: fixed;
       width: 99%;
-      HEIGHT: 43%;
+      HEIGHT: 45%;
     .pick-question{
-      border: solid 2px lighten($primary-color, 25%);
+      border: solid 2px lighten($primary-color, 22%);
       background-color: lighten($question-color, 6%);
       font-family: 'lato', sans-serif;
       font-weight: 300;
@@ -68,7 +83,6 @@ body{
       padding:.5% 0;
       width: 97.5%;
       border-radius: .4em;
-
         .q-field{
           padding: 0 0 0 .5%;
           width: 45%;
@@ -93,11 +107,6 @@ body{
       display: inline-block;
       width: 47%;
       MARGIN: .5% 1%;
-      .survey-field{
-        display: inline-block;
-        width: 100%;
-        line-height: 1.5em;
-      }
       .survey-area{
         display: inline-block;
         width: 100%;
@@ -107,17 +116,21 @@ body{
 
   .survey-description{
     width: 97.5%;
+
   }
   .survey-publish{
     border-top: solid thin darken($survey-bg, 10%);
-    margin: 2% 2% 0 0;
+    margin: 1% 2% 0 0;
     padding: .5% 0 0 0;
-    width: 100%;
-      display: inline-block;
-      text-align: center;
-    background-color: darken($survey-bg, 3%);
+    width: 98.9%;
+    display: inline-block;
+    text-align: center;
+    background-color: darken($primary-color, 25%);
     position: fixed;
-    bottom: 65px;
+    bottom: 33px;
+    color: $bg-color;
+    font-size: 1em;
+    border-top: solid 2px $primary-color;
   }
   .actions{
     display: block;
@@ -126,7 +139,6 @@ body{
     margin: 0 0 0 0;
     background-color: darken($primary-color, 25%);
     border-top: solid 2px $primary-color;
-    // border-bottom: solid 2px $primary-color;
     position: fixed;
     bottom: 30px;
   }
