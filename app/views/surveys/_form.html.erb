@@ -38,7 +38,7 @@
 
 
     <div class='question-wrap'>
-      <% @survey.survey_questions.each_with_index do |question, index| %>
+      <% @survey_questions.each_with_index do |question, index| %>
         <%= f.fields_for :survey_questions, question do |ff| %>
 
         <!-- START OF HTML BLOCK THAT SHOULD BE ADDED WHEN NEW ITEM IS CLICKED -->
@@ -65,7 +65,7 @@
           <%= ff.text_field :answer_options, value: "Yes, No" %></span>
           <span class='hidden'>
             <!-- This is the field where the position value should be stored. Pass the position in as a value, pls! -->
-            <%= ff.text_field :position, :class => 'q-position', value: index %></span>
+            <%= ff.text_field :position, :class => 'q-position' %></span>
 
         <!-- END OF HTML BLOCK THAT SHOULD BE ADDED WHEN NEW ITEM IS CLICKED-->
 

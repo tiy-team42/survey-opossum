@@ -4,7 +4,7 @@ class ResultsController < ApplicationController
 
   def show
     if @survey.author_id == session[:user_id]
-      @questions = @survey.survey_questions
+      @questions = @survey.survey_questions.order(:position)
     else
       redirect_to root_path,  notice: "That's not a valid results page."
     end
