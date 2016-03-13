@@ -1,62 +1,66 @@
 
+<div class='survey-form-wrap'>
+  <%= form_for(@survey) do |f| %>
+    <% if @survey.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey_question from being saved:</h2>
 
-<%= form_for(@survey) do |f| %>
-  <% if @survey.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey_question from being saved:</h2>
-
-      <ul>
-      <% @survey.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+        <ul>
+        <% @survey.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
 
 
 
-  <% @survey_questions.each do |survey_question| %>
-    <%= survey_question.text  %>
-    Required?: <%= survey_question.required %>
-    <% if @survey.published %>
-      <%= f.fields_for :survey_questions, survey_question do |q| -%>
-          <% if survey_question.is_boolean? %>
-              <%= q.fields_for :boolean_questions, survey_question.boolean_questions.build do |ff| %>
-                <div>
-                  <%= survey_question.choices[0] %>
-                  <%= ff.check_box :answer %>
-                  <%= survey_question.choices[1] %>
-                </div>
-              <% end %>
-          <% elsif survey_question.is_short_answer? %>
-              <%= q.fields_for :short_answer_questions, survey_question.short_answer_questions.build do |ff| %>
-                <div>
-                  <%= ff.text_field :answer, placeholder: "Answer goes here..." %>
-                </div>
-              <% end %>
-          <% elsif survey_question.is_long_answer? %>
-              <%= q.fields_for :long_answer_questions, survey_question.long_answer_questions.build do |ff| %>
-                <div>
-                  <%= ff.text_area :answer, placeholder: "Answer goes here..." %>
-                </div>
-              <% end %>
-          <% elsif survey_question.is_dropdown? %>
-              <%= q.fields_for :dropdown_questions, survey_question.dropdown_questions.build do |ff| %>
-                <div>
-                  <%= ff.select :answer, survey_question.choices, :include_blank => true %>
-                </div>
-              <% end %>
-          <% else %>
-            No question type
-          <% end %>
-          <br>
+    <% @survey_questions.each do |survey_question| %>
+      <%= survey_question.text  %>
+       <%= survey_question.required %>
+      <% if @survey.published %>
+        <%= f.fields_for :survey_questions, survey_question do |q| -%>
+            <% if survey_question.is_boolean? %>
+                <%= q.fields_for :boolean_questions, survey_question.boolean_questions.build do |ff| %>
+                  <div>
+                    <%= survey_question.choices[0] %>
+                    <%= ff.check_box :answer %>
+                    <%= survey_question.choices[1] %>
+                  </div>
+                <% end %>
+            <% elsif survey_question.is_short_answer? %>
+                <%= q.fields_for :short_answer_questions, survey_question.short_answer_questions.build do |ff| %>
+                  <div>
+                    <%= ff.text_field :answer, placeholder: "Answer goes here..." %>
+                  </div>
+                <% end %>
+            <% elsif survey_question.is_long_answer? %>
+                <%= q.fields_for :long_answer_questions, survey_question.long_answer_questions.build do |ff| %>
+                  <div>
+                    <%= ff.text_area :answer, placeholder: "Answer goes here..." %>
+                  </div>
+                <% end %>
+            <% elsif survey_question.is_dropdown? %>
+                <%= q.fields_for :dropdown_questions, survey_question.dropdown_questions.build do |ff| %>
+                  <div>
+                    <%= ff.select :answer, survey_question.choices, :include_blank => true %>
+                  </div>
+                <% end %>
+            <% else %>
+              No question type
+            <% end %>
+            <br>
+        <% end %>
       <% end %>
     <% end %>
+
+
+
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+    <%= link_to 'Edit', edit_survey_path(@survey) %> |
+    <%= link_to 'Back', surveys_path %>
   <% end %>
-
-
-
-  <div class="actions">
-    <%= f.submit unless !@survey.published %>
-  </div>
-<% end %>
+</div>

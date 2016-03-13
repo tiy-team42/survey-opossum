@@ -42,32 +42,34 @@
         <%= f.fields_for :survey_questions, question do |ff| %>
 
         <!-- START OF HTML BLOCK THAT SHOULD BE ADDED WHEN NEW ITEM IS CLICKED -->
-        <div class='pick-question' id='question<%=index%>'>
-          <span class='move-up'>^</span><span class='move-down'>D</span>
+        <div class='pick-question' id='question0'>
+          <div class='move-buttons'><span class='move-up'><i class="fa fa-caret-up"></i></span><span class='move-down'><i class="fa fa-caret-down"></i></span></div>
           <span class='q-txt'>
-            QUESTION: <%= ff.text_field :text, :placeholder => "ASK YOUR QUESTION HERE", :class => 'q-field' %>
+            <%= ff.text_field :text, :placeholder => "Ask Your Question Here", :class => 'q-field' %>
           </span>
 
+
+          <span class='remove-question'>Remove?  <%= ff.check_box :_destroy, :class => 'q-remove'  %></span>
+
           <span class='q-options'>
-            <span class='q-required'>
-              Required?: <%= ff.check_box :required %>
-            </span>
+
 
             <span class='q-type'>
-              This Question is a: <%= ff.select :question_type, [["Yes No", "BooleanQuestion"], ["Short Answer", "ShortAnswerQuestion"], ["Long Answer", "LongAnswerQuestion"], ["Multiple Choice Dropdown", "DropdownQuestion"] ], prompt: "Select question type..." %>
+              This is a <%= ff.select :question_type, [["Yes No", "BooleanQuestion"], ["Short Answer", "ShortAnswerQuestion"], ["Long Answer", "LongAnswerQuestion"], ["Multiple Choice Dropdown", "DropdownQuestion"] ], prompt: "Select question type..." %> question
             </span>
-              Remove? <%= ff.check_box :_destroy, :class => 'q-remove'  %>
           </span>
 
         <span class='hidden'>
-          THIS SECTION SHOULD ONLY SHOW IF THE USER SELECTED A BOOLEAN QUESTION TYPE OR A DROPDOWN QUESTION TYPE
-          Add options, comma separated. For Yes/No questions, add two values. The first answer should be the "Yes" option. For multiple choice, add as many as you'd like!
-          <%= ff.text_field :answer_options, value: "Yes, No" %></span>
+          <%= ff.text_field :answer_options, value: "Yes, No" %>
+        </span>
           <span class='hidden'>
-            <!-- This is the field where the position value should be stored. Pass the position in as a value, pls! -->
-            <%= ff.text_field :position, :class => 'q-position' %></span>
+            <%= ff.text_field :position, :class => 'q-position', value: index %>
+          </span>
 
-        <!-- END OF HTML BLOCK THAT SHOULD BE ADDED WHEN NEW ITEM IS CLICKED-->
+          <span class='q-required'>
+            Is this question required?: <%= ff.check_box :required, :class => 'q-required-toggle' %>
+          </span>
+
 
     </div>
     <% end %>
