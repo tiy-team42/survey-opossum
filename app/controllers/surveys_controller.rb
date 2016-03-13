@@ -17,7 +17,7 @@ class SurveysController < ApplicationController
   #only show if published
   def show
     if session[:user_id] == @survey.author_id || @survey.published
-        @survey_questions = @survey.survey_questions
+        @survey_questions = @survey.survey_questions.order(:position)
         @survey_questions.each_with_index do |q, i|
           if q.is_boolean?
             @survey_questions[i].boolean_questions.build
@@ -51,7 +51,7 @@ class SurveysController < ApplicationController
     if @survey.has_responses?
       redirect_to surveys_path, alert: "Sorry, that survey can't be edited. It already has responses."
     else
-      @survey.survey_questions
+      @survey_questions = @survey.survey_questions.order(:position)
     end
   end
 
@@ -89,6 +89,6 @@ class SurveysController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def survey_params
-      params.require(:survey).permit(:title, :description, :author_id, :published, survey_questions_attributes: [:id, :text, :required, :question_type, :answer_options, :_destroy, :boolean_questions_attributes => [:id, :answer], :short_answer_questions_attributes => [:id, :answer], :long_answer_questions_attributes => [:id, :answer], :dropdown_questions_attributes => [:id, :answer]])
+      params.require(:survey).permit(:title, :description, :author_id, :published, survey_questions_attributes: [:id, :text, :required, :position, :question_type, :answer_options, :_destroy, :boolean_questions_attributes => [:id, :answer], :short_answer_questions_attributes => [:id, :answer], :long_answer_questions_attributes => [:id, :answer], :dropdown_questions_attributes => [:id, :answer]])
     end
 end

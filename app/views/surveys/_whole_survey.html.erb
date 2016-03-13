@@ -13,14 +13,12 @@
     </div>
   <% end %>
 
-  <% unless @survey.published %>
-    <%= "Don't add answers unless you're ready to publish the survey! You won't be able to edit it if you add answers!" %>
-  <% end %>
-  <br>
+
 
   <% @survey_questions.each do |survey_question| %>
     <%= survey_question.text  %>
     Required?: <%= survey_question.required %>
+    <% if @survey.published %>
       <%= f.fields_for :survey_questions, survey_question do |q| -%>
           <% if survey_question.is_boolean? %>
               <%= q.fields_for :boolean_questions, survey_question.boolean_questions.build do |ff| %>
@@ -53,11 +51,12 @@
           <% end %>
           <br>
       <% end %>
+    <% end %>
   <% end %>
 
 
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit unless !@survey.published %>
   </div>
 <% end %>
