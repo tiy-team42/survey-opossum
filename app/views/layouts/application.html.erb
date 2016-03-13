@@ -26,9 +26,9 @@
   <span class="app-footer-paw"><i class="fa fa-paw"></i></span>
   <span class="app-footer-text">&copy;MMXVI Team 42</span>
   <% if session[:user_id] %>
-    <%= link_to "Logout", logout_path, method: :delete %>
+    <%= link_to "Logout", logout_path, method: :delete, :class => 'app-footer-link' %>
   <% else %>
-    <%= link_to "Login", login_path  %>
+    <%= link_to "Login", login_path, :class => 'app-footer-link'  %>
   <% end %>
 
 </footer>

@@ -6,6 +6,13 @@ $bg-color: white;
 $question-color: #d9e6ff;
 $survey-bg: whitesmoke;
 
+select {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+}
+
+//this is the new survey page/cross-survey page styling
 body{
   background-color: $bg-color;
   color: $primary-color;
@@ -72,31 +79,77 @@ body{
       overflow: scroll;
       position: fixed;
       width: 99%;
-      HEIGHT: 45%;
+      HEIGHT: 48%;
+
     .pick-question{
-      border: solid 2px lighten($primary-color, 22%);
+      border: solid 2px lighten($primary-color, 20%);
       background-color: lighten($question-color, 6%);
       font-family: 'lato', sans-serif;
       font-weight: 300;
       color: darken($question-color, 70%);
-      margin: 0 0 0 1%;
-      padding:.5% 0;
+      margin: 0 0 .5% 1%;
+
       width: 97.5%;
       border-radius: .4em;
-        .q-field{
-          padding: 0 0 0 .5%;
-          width: 45%;
-        }
-        .q-txt{
-          padding: 0 0 0 .5%;
-        }
-        .q-options{
-          margin: 0 .75% 0 0;
-          float: right;
-          .q-required{
-            padding: 0 0   0 0;
+      .move-buttons{
+        width: 6.05%;
+        display:inline-block;
+        background-color: lighten($question-color, 2%);
+        // border: solid 2px lighten($primary-color, 15%);
+        // margin: -15px 0 0 0;
+
+        .move-up{
+          margin: 0 0 0 0;
+          display: inline-block;
+          font-size: 2em;
+          padding: 11% 0 0 0;
+          background-color: lighten($question-color, 2%);
+          &:hover{
+            background-color: darken($question-color, 20%);
           }
         }
+        .move-down{
+          background-color: lighten($question-color, 2%);
+          padding: 11% 0 0 0;
+          display: inline-block;
+          font-size: 2em;
+
+          &:hover{
+            background-color: darken($question-color, 20%);
+          }
+        }
+      }
+      .q-txt{
+        // margin: 10% 0 0 3%;
+        // padding: 10% 0 0 .5%;
+        display: inline;
+        width: 80%;
+        .q-field{
+          margin: 1% 0 0 1%;
+          padding: 0 0 0 .5%;
+          width: 91%;
+          display: inline-block;
+          line-height: 1.4em;
+          font-size: 1.6em;
+          border-radius: .5em;
+          border: solid thin lighten($question-color, 1%);;
+        }
+      }
+      .q-options{
+        display: inline-block;
+        margin: 1% 0 1% 1%;
+        font-size: 1.2em;
+      }
+      .q-required{
+        float: right;
+        margin: 1% 1% 0 1%;
+        font-size: 1.2em;
+      }
+      .remove-question{
+        background-color: lighten($question-color, 2%);
+        // border: solid thin lighten($primary-color, 15%);
+        padding: 1.35% 0 1% 0;
+      }
     }
   }
     .field{
@@ -120,7 +173,7 @@ body{
   }
   .survey-publish{
     border-top: solid thin darken($survey-bg, 10%);
-    margin: 1% 2% 0 0;
+    margin: 0 2% 0 0;
     padding: .5% 0 0 0;
     width: 98.9%;
     display: inline-block;
@@ -143,4 +196,123 @@ body{
     bottom: 30px;
   }
   }
+}
+
+
+
+//this is the edit survey page styling
+.edit-survey-header{
+  margin: 132px  0 0 .05%;
+  font-family: 'lato', sans-serif;
+  font-weight: 300;
+  padding: 1%  2% 1% 35%;
+  width: 62.95%;
+  border-bottom: solid 3px $primary-color;
+  background-color: darken($primary-color, 25%);
+  color: $bg-color;
+  font-size: 2.5  em;
+}
+
+//this is the main survey view page styling
+.survey-main-header{
+  margin: 132px  0 0 .05%;
+  font-family: 'lato', sans-serif;
+  font-weight: 300;
+  padding: 1%  0 1% 37%;
+  width: 62.95%;
+  border-bottom: solid 3px $primary-color;
+  background-color: darken($primary-color, 25%);
+  color: $bg-color;
+  font-size: 2.5em;
+}
+.title-col{
+  width: 20%;
+
+}
+.desc-col{
+  width: 50%;
+}
+.pub-col{
+  width: 5%;
+}
+.survey-main-body{
+  background-color: $survey-bg;
+  height: 522px;
+  overflow: scroll;
+  // position: absolute;
+  .a-thing{
+      margin: 0 0 0 2%;
+  }
+}
+
+
+.new-survey-btn-wrap{
+  position: fixed;
+  bottom: 33px;
+  width: 98.9%;
+  margin: 0 0  0 1px;
+  background-color: darken($primary-color, 25%);
+  border-top: solid 3px $primary-color;
+  .new-survey-button{
+    margin:.5% 43% 0 43%;
+    padding: .5% .5% .5% .5%;
+    background-color: darken($primary-color, 25%);
+    &:hover{
+      background-color: darken($primary-color, 15%);
+    }
+    .new-survey-link{
+      font-family: 'lato', sans-serif;
+      color: $bg-color;
+      text-decoration: none;
+    }
+  }
+}
+
+//this styling is for the page where you take a survey
+.survey-form-header{
+  margin: 122px  0 0 .05%;
+  font-family: 'lato', sans-serif;
+  font-weight: 300;
+  padding: 1.5%  0 1% 0;
+  width: 99.98%;
+  border-bottom: solid 3px $primary-color;
+  background-color: darken($primary-color, 25%);
+  color: lighten($primary-color, 15%);
+  font-size: 2.5em;
+  text-align: center;
+  .survey-form-header-text{
+    color: $primary-color;
+  }
+}
+
+.survey-form-wrap{
+  width: 98.9%;
+  // margin: 200px 0 0 0;
+  background: $survey-bg;
+  height: 560px;
+  position: fixed;
+  overflow: scroll;
+}
+
+
+
+.results-form-header{
+  margin: 122px  0 0 .05%;
+  font-family: 'lato', sans-serif;
+  font-weight: 300;
+  padding: 1.5%  0 1% 0;
+  width: 99.98%;
+  border-bottom: solid 3px $primary-color;
+  background-color: darken($primary-color, 25%);
+  color: $bg-color;
+  font-size: 2.5em;
+  text-align: center;
+}
+.results-form-wrap{
+width: 98.9%;
+// margin: 200px 0 0 0;
+background: $survey-bg;
+height: 560px;
+position: fixed;
+overflow: scroll;
 }

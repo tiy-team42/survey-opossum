@@ -1,22 +1,13 @@
 
-<div class='user-login'>
+<div class='survey-form-header'>
+  <%= @survey.title %>:
+  <span class='survey-form-header-text'><%= @survey.description %></span>
 </div>
-<p>
-  <strong>Title:</strong>
-  <%= @survey.title %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @survey.description %>
-</p>
-
-<p>
+<!-- <p>
+IM NOT SURE THAT THIS PAGE NEEDS THIS INFO
   <strong>Published:</strong>
   <%= @survey.published %>
-</p>
+</p> -->
 
 <%= render 'whole_survey' %>
-
-<%= link_to 'Edit', edit_survey_path(@survey) %> |
-<%= link_to 'Back', surveys_path %>

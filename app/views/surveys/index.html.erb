@@ -1,23 +1,24 @@
-<h1 class='new-survey-header'>Listing Surveys</h1>
+<h1 class='survey-main-header'>Y O U R &nbsp;&nbsp;&nbsp;&nbsp;S U R V E Y S</h1>
 
+<div class='survey-main-body'>
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Published?</th>
+      <th class='title-col'>Survey Title</th>
+      <th class='desc-col'>Survey Description</th>
+      <th class='pub-col'>Published?</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class='survey-main-body'>
     <% @surveys.each do |survey| %>
-      <tr>
-        <td><%= link_to "#{survey.title}", survey %></td>
-        <td><%= survey.description %></td>
+      <tr class='a-thing'>
+        <td><%= link_to "#{survey.title}", survey, :class =>'survey-title-link' %></td>
+        <td><%= survey.description   %></td>
         <td><%= "Yes" if survey.published %></td>
-        <td><%= link_to 'See Results', result_path(survey) %></td>
-        <td><%= link_to 'Edit', edit_survey_path(survey) %></td>
+        <td><%= link_to 'See Results', result_path(survey), :class =>'see-results-link' %></td>
+        <td><%= link_to 'Edit', edit_survey_path(survey), :class => 'edit-survey-link' %></td>
         <td><%= link_to 'Destroy', survey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -26,4 +27,9 @@
 
 <br>
 
-<%= link_to 'New Survey', new_survey_path %>
+<div class='new-survey-btn-wrap'>
+  <div class='new-survey-button'>
+    <%= link_to 'CREATE A NEW SURVEY', new_survey_path,:class => 'new-survey-link' %>
+  </div>
+</div>
+</div>

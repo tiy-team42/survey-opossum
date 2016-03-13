@@ -32,6 +32,7 @@ $survey-bg: whitesmoke;
     border-bottom: 3px solid $primary-color;
     position: fixed;
     top: 0;
+    background-color: $bg-color;
     .app-header-text{
       display: inline-block;
       padding: .75em 0 0 3.75em;
@@ -59,6 +60,11 @@ $survey-bg: whitesmoke;
       padding: .75% .5% .75% 0%;
       font-size: .5em;
       color:darken($primary-color, 15%);
+    }
+    .app-footer-link{
+      text-decoration: none;
+      color: lighten($primary-color, 2%);
+      font-family: 'lato', sans-serif;
     }
 }
 .hidden{

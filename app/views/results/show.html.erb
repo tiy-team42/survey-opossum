@@ -1,4 +1,5 @@
-<h1>Results</h1>
+<h1 class='results-form-header'>Results</h1>
+<div class='results-form-wrap'>
 <% @questions.each do |q| %>
   <h2>
     <%= q.text %>
@@ -8,3 +9,4 @@
     <% end %>
 <% end %>
 <%= link_to "Download Results", survey_path(format: :csv) %>
+</div>
