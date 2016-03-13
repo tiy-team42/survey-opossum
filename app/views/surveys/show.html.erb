@@ -1,5 +1,83 @@
+<p id="notice">Survey was successfully updated.</p>
+<p id="alert"></p>
+
+
+
+
 
 <div class='user-login'>
+</div>
+<p>
+  <strong>Title:</strong>
+  A survey with many questions
+</p>
+
+<p>
+  <strong>Description:</strong>
+  This is the description of the survey.
+</p>
+
+<p>
+  <strong>Published:</strong>
+  true
+</p>
+
+
+
+<form class="edit_survey" id="edit_survey_35" action="/surveys/35" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="patch" /><input type="hidden" name="authenticity_token" value="bSVanHmd4DQuE5rTmG5QgHVEorSm7ENBy9pRWofAbddFqGGl7kQkXaFMD6HKK2cGXW4nRwF3olIikQpQGnvOmQ==" />
+
+  <br>
+
+    This is a long answer question?
+    Required?: false
+
+                <div>
+                  <textarea placeholder="Answer goes here..." name="survey[survey_questions_attributes][0][long_answer_questions_attributes][0][answer]" id="survey_survey_questions_attributes_0_long_answer_questions_attributes_0_answer">
+</textarea>
+                </div>
+          <br>
+<input type="hidden" value="59" name="survey[survey_questions_attributes][0][id]" id="survey_survey_questions_attributes_0_id" />    This is a short answer question?
+    Required?: true
+
+                <div>
+                  <input placeholder="Answer goes here..." type="text" name="survey[survey_questions_attributes][1][short_answer_questions_attributes][0][answer]" id="survey_survey_questions_attributes_1_short_answer_questions_attributes_0_answer" />
+                </div>
+          <br>
+<input type="hidden" value="60" name="survey[survey_questions_attributes][1][id]" id="survey_survey_questions_attributes_1_id" />    This is a Yes/No question?
+    Required?: false
+
+                <div>
+                  Yes
+                  <input name="survey[survey_questions_attributes][2][boolean_questions_attributes][0][answer]" type="hidden" value="0" /><input type="checkbox" value="1" name="survey[survey_questions_attributes][2][boolean_questions_attributes][0][answer]" id="survey_survey_questions_attributes_2_boolean_questions_attributes_0_answer" />
+                   No
+                </div>
+          <br>
+<input type="hidden" value="61" name="survey[survey_questions_attributes][2][id]" id="survey_survey_questions_attributes_2_id" />    This is a Multiple choice question?
+    Required?: false
+
+                <div>
+                  <select name="survey[survey_questions_attributes][3][dropdown_questions_attributes][0][answer]" id="survey_survey_questions_attributes_3_dropdown_questions_attributes_0_answer"><option value=""></option>
+<option value="Yes">Yes</option>
+<option value=" No"> No</option></select>
+                </div>
+          <br>
+<input type="hidden" value="62" name="survey[survey_questions_attributes][3][id]" id="survey_survey_questions_attributes_3_id" />
+
+
+  <div class="actions">
+    <input type="submit" name="commit" value="Update Survey" />
+  </div>
+</form>
+
+<a href="/surveys/35/edit">Edit</a> |
+<a href="/surveys">Back</a>
+
+
+
+
+
+
+<!-- <div class='user-login'>
 </div>
 <p>
   <strong>Title:</strong>
@@ -19,4 +97,4 @@
 <%= render 'whole_survey' %>
 
 <%= link_to 'Edit', edit_survey_path(@survey) %> |
-<%= link_to 'Back', surveys_path %>
+<%= link_to 'Back', surveys_path %> -->
