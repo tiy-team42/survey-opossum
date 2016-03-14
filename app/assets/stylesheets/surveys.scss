@@ -145,9 +145,6 @@ body{
         margin: 1% 1% 0 1%;
         font-size: 1.2em;
       }
-      .survey-options{
-        margin: 1% 0 1% 2%;
-      }
       .remove-question{
         background-color: lighten($question-color, 2%);
         // border: solid thin lighten($primary-color, 15%);
@@ -228,21 +225,6 @@ body{
   color: $bg-color;
   font-size: 2.5em;
 }
-
-.empty-surveys-index-page-msg{
-  margin: 50  0 0 .05%;
-  font-family: 'lato', sans-serif;
-  font-weight: 200;
-  padding: 1%  0 1% -1%;
-  width: 100%;
-  border-bottom: solid 3px $primary-color;
-  background-color: darken($primary-color, 25%);
-  color: $bg-color;
-  font-size:1.5em;
-  text-align: center;
-}
-
-
 .title-col{
   width: 20%;
 
@@ -346,18 +328,20 @@ overflow: scroll;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
     display: none;
+    z-index: 2;
 }
 
-.thanks-modal-container.showing {
-    display: block;
+.showing {
+    display: inherit;
 }
 
 .thanks-modal {
     position: fixed;
-    top: 5em;
-    left: 5em;
-    bottom: 5em;
-    right: 5em;
+    font-size: 2em;
+    top: 7em;
+    left: 7em;
+    bottom: 7em;
+    right: 7em;
     background: lighten($primary-color, 15%);
     border: 2px solid darken($primary-color, 25%);
     padding: 1em;
@@ -370,4 +354,8 @@ overflow: scroll;
     border-radius: 4px;
     background: whitesmoke;
     border: 1px solid darken($primary-color, 25%);
+}
+
+.test-action {
+    z-index: 1;
 }

@@ -68,17 +68,18 @@ $(function(){//init DOM
   };
 
 //this is the thanks modal
-    $('.survey-form-wrap').on('click', '.actions', function () {
-      $('.thanks-modal-container').addClass('.showing');
-    });
+$('.test-action').on('click', function () {
+$('.thanks-modal-container').addClass('showing');
+});
 
-    $('.thanks-modal-close, .thanks-modal-container').on('click', function () {
-      $('.thanks-modal-container').removeClass('.showing');
-    });
+$('.thanks-modal-close, .thanks-modal-container').on('click', function () {
+$('.thanks-modal-container').removeClass('showing');
+e.preventDefault()
+});
 
-    $('.thanks-modal').click(function (e) {
-      e.stopPropagation();
-    });
+$('.thanks-modal').click(function (e) {
+e.preventDefault()
+});
 
   //this function adds a textbox when 'yes/no' is selected in the create/edit survey questions page
   $('.question-wrap').on('blur','.survey-questions-dropdown',  function(){
