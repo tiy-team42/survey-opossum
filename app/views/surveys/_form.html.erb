@@ -54,7 +54,7 @@
 
 
             <span class='q-type'>
-              This is a <%= ff.select :question_type, [["Yes No", "BooleanQuestion"], ["Short Answer", "ShortAnswerQuestion"], ["Long Answer", "LongAnswerQuestion"], ["Multiple Choice Dropdown", "DropdownQuestion"] ], prompt: "Select question type..." %> question
+              This is a <%= ff.select  :question_type, [["Yes No", "BooleanQuestion"], ["Short Answer", "ShortAnswerQuestion"], ["Long Answer", "LongAnswerQuestion"], ["Multiple Choice Dropdown", "DropdownQuestion"] ], {prompt: "Select question type..."}, {:class => 'survey-questions-dropdown'}  %> question
             </span>
           </span>
 
