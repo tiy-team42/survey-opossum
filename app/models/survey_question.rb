@@ -32,7 +32,7 @@ class SurveyQuestion < ActiveRecord::Base
 
   def responses
     if is_boolean?
-      @responses = boolean_questions.map {|a| a.answer }
+      @responses = boolean_questions.map {|a| a.answer ? choices[0] : choices[1]}
     elsif is_short_answer?
       @responses = short_answer_questions.map {|a| a.answer }
     elsif is_long_answer?
