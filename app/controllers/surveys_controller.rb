@@ -68,7 +68,8 @@ class SurveysController < ApplicationController
   # PATCH/PUT /surveys/1
   def update
     if @survey.update(survey_params)
-      redirect_to @survey, notice: 'Survey was successfully updated.'
+        flash[:notice] = 'Survey was successfully updated.'
+      redirect_to @survey
     else
       flash[:alert] = "Make sure all required fields are filled out!"
       redirect_to :back
