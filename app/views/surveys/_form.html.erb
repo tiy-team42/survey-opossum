@@ -38,8 +38,7 @@
 
 
     <div class='question-wrap'>
-      <% @survey_questions.each_with_index do |question, index| %>
-        <%= f.fields_for :survey_questions, question do |ff| %>
+        <%= f.fields_for :survey_questions do |ff| %>
 
         <!-- START OF HTML BLOCK THAT SHOULD BE ADDED WHEN NEW ITEM IS CLICKED -->
         <div class='pick-question' id='question0'>
@@ -63,7 +62,7 @@
           <%= ff.text_field :answer_options, value: "Yes, No" %>
         </span>
           <span class='hidden'>
-            <%= ff.text_field :position, :class => 'q-position', value: index %>
+            <%= ff.text_field :position, :class => 'q-position' %>
           </span>
 
           <span class='q-required'>
@@ -73,7 +72,6 @@
 
     </div>
     <% end %>
-  <% end %>
 
 </div>
 
