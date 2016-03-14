@@ -1,15 +1,17 @@
 <h1 class='results-form-header'>Results</h1>
 <div class='results-form-wrap'>
-<% @questions.each do |q| %>
+<% @questions.each_with_index do |q, i| %>
   <h2>
+    <%= "#{i + 1}." %>
     <%= q.text %>
     <% if q.required%>
       <i class="fa fa-star"></i>
     <% end %>
   </h2>
-    <% q.responses.each do |response| %>
-      <%= response %>
+    <% q.responses.each_with_index do |response, i| %>
+      <%= "#{i+ 1}. " + response %> <br>
     <% end %>
 <% end %>
+<br>
 <%= link_to "Download Results", survey_path(format: :csv) %>
 </div>
