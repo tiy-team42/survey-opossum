@@ -88,14 +88,15 @@ $survey-bg: whitesmoke;
 
 .modal {
   position: fixed;
-  top: 20px;
-  left: 27em;
-  bottom: 37em;
-  right: 27em;
-  background: blue;
+  top: 0;
+  left: 0;
+  bottom: 35em;
+  right: 0;
+  background: darken($primary-color, 25%);
   border: 1px solid #AAA;
   padding: 1em;
   color: white;
+  text-align: center;
   font-family: "lato", sans-serif;
 }
 
