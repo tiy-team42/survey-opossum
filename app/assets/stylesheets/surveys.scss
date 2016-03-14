@@ -79,7 +79,7 @@ body{
       overflow: scroll;
       position: fixed;
       width: 99%;
-      HEIGHT: 48%;
+      HEIGHT: 45%;
 
     .pick-question{
       border: solid 2px lighten($primary-color, 20%);
@@ -180,7 +180,7 @@ body{
     text-align: center;
     background-color: darken($primary-color, 25%);
     position: fixed;
-    bottom: 33px;
+    bottom: 32px;
     color: $bg-color;
     font-size: 1em;
     border-top: solid 2px $primary-color;
