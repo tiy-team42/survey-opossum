@@ -16,8 +16,10 @@
 
 
     <% @survey_questions.each do |survey_question| %>
-      <%= survey_question.text  %>
-       <%= survey_question.required %>
+      <%= survey_question.text %>
+        <% if survey_question.required%>
+          <i class="fa fa-star"></i>
+        <% end %>
         <%= f.fields_for :survey_questions, survey_question do |q| -%>
             <% if survey_question.is_boolean? %>
                 <%= q.fields_for :boolean_questions, survey_question.boolean_questions.build do |ff| %>
