@@ -37,6 +37,8 @@ class SurveyQuestion < ActiveRecord::Base
       @responses = short_answer_questions.map {|a| a.answer }
     elsif is_long_answer?
       @responses = long_answer_questions.map {|a| a.answer }
+    elsif is_dropdown?
+      @responses = dropdown_questions.map {|a| a.answer}
     end
     @responses || ["No Responses Yet"]
   end
