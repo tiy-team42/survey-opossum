@@ -72,9 +72,9 @@ $(function(){//init DOM
   $('.question-wrap').on('blur','.survey-questions-dropdown',  function(){
     console.log($(this).val());
     if($(this).val() === 'BooleanQuestion'){
-      $('.survey-options').show();
+      $(this).parents().children('.survey-options').show();
     } else if($(this).val() === 'DropdownQuestion'){
-      $('.survey-options').show();
+      $(this).parents().children('.survey-options').show();
     }
   })
 
