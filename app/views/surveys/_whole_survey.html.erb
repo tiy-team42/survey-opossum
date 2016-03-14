@@ -61,7 +61,9 @@
       <%= f.submit "Submit Your Answers", :class => 'actions' if @survey.published  %>
 
     </div>
-    <%= link_to 'Edit', edit_survey_path(@survey) %> |
-    <%= link_to 'Back', surveys_path %>
+    <% if session[:user_id] == @survey.author_id    %>
+      <%= link_to 'Edit', edit_survey_path(@survey) %> |
+      <%= link_to 'Back', surveys_path %>
+    <% end %>
   </div>
     <% end %>
