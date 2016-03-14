@@ -22,6 +22,11 @@ $bg-color: white;
 $question-color: #d9e6ff;
 $survey-bg: whitesmoke;
 
+
+body{
+    background-image: url('opossum.jpeg');
+    background-size: 100%
+}
 .app-header-wrap {
     color: $primary-color;
     font-family: 'lato', sans-serif;
@@ -32,7 +37,8 @@ $survey-bg: whitesmoke;
     border-bottom: 3px solid $primary-color;
     position: fixed;
     top: 0;
-    background-color: $bg-color;
+    // background-color: $bg-color;
+
     .app-header-text{
       display: inline-block;
       padding: .75em 0 0 3.75em;
