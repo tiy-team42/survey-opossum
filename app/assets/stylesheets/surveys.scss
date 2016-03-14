@@ -288,7 +288,7 @@ body{
 
 //this styling is for the page where you take a survey
 .survey-form-header{
-  margin: 122px  0 0 .05%;
+  margin: 130px  0 0 .05%;
   font-family: 'lato', sans-serif;
   font-weight: 300;
   padding: 1.5%  0 1% 0;
@@ -305,15 +305,25 @@ body{
 
 .survey-form-wrap{
   width: 98.9%;
-  // margin: 200px 0 0 0;
+  margin: 0 0 0 1px;
   background: $survey-bg;
-  height: 560px;
+  height: 555px;
   position: fixed;
   overflow: scroll;
 }
+.survey-form-questions-wrap{
+  margin: 1% 0 0 35%;
+  color: darken($primary-color, 35%);
+.short-answer-text-field{
+  width: 50%;
+}
+.long-answer-text-field{
+  width: 50%;
+  height: 125px;
+}
+}
 
-
-
+//results page stying
 .results-form-header{
   margin: 122px  0 0 .05%;
   font-family: 'lato', sans-serif;
