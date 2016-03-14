@@ -60,7 +60,7 @@
 
 
     <div class="actions">
-      <%= f.submit if @survey.published %>
+      <%= f.submit "Submit Your Answers" if @survey.published %>
     </div>
     <%= link_to 'Edit', edit_survey_path(@survey) %> |
     <%= link_to 'Back', surveys_path %>

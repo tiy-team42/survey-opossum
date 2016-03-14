@@ -11,7 +11,7 @@
       <div class="modal">
         <button class="modal-close">X</button>
           <div id="error_explanation">
-          <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
+          <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved. Please correct and resubmit below!</h2>
 
           <ul>
             <% @survey.errors.full_messages.each do |message| %>
