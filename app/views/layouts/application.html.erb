@@ -14,8 +14,8 @@
          S U R V E Y&nbsp; &nbsp;&nbsp; &nbsp;<i class="fa fa-paw"></i>&nbsp; &nbsp; &nbsp;&nbsp;O P O S S U M
       </span>
     </header>
-<p id="notice"><%= notice %></p>
-<p id="alert"><%= alert %></p>
+<!-- <p id="notice"><%= notice %></p>
+<p id="alert"><%= alert %></p> -->
 
 
 
@@ -27,6 +27,7 @@
   <span class="app-footer-text">&copy;MMXVI Team 42</span>
   <% if session[:user_id] %>
     <%= link_to "Logout", logout_path, method: :delete, :class => 'app-footer-link' %>
+    <%= link_to "Return to dashboard", root_path, :class => 'app-footer-link' %>
   <% else %>
     <%= link_to "Login", login_path, :class => 'app-footer-link'  %>
   <% end %>
