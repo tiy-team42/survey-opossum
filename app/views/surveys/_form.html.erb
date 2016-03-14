@@ -79,7 +79,7 @@
     <div class="field survey-publish">
       <%= f.label 'Would you like this survey to be publicly available?' %>
       <%= f.check_box :published, :class => 'pub-check'  %>
-      <%= link_to 'submit', "", method: :post, :onclick => "$('#form_id').submit()" %>
+      <%= f.submit %>
     </div>
 
 
