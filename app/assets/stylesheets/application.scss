@@ -22,6 +22,11 @@ $bg-color: white;
 $question-color: #d9e6ff;
 $survey-bg: whitesmoke;
 
+
+body{
+    background-image: url('opossum.jpeg');
+    background-size: 100%
+}
 .app-header-wrap {
     color: $primary-color;
     font-family: 'lato', sans-serif;
@@ -32,7 +37,8 @@ $survey-bg: whitesmoke;
     border-bottom: 3px solid $primary-color;
     position: fixed;
     top: 0;
-    background-color: $bg-color;
+    // background-color: $bg-color;
+
     .app-header-text{
       display: inline-block;
       padding: .75em 0 0 3.75em;
@@ -70,4 +76,41 @@ $survey-bg: whitesmoke;
 }
 .hidden{
   display: none;
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 35em;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.modal-container.showing {
+  display: block;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 35em;
+  right: 0;
+  background: darken($primary-color, 25%);
+  border: 1px solid #AAA;
+  padding: 1em;
+  color: white;
+  text-align: center;
+  font-family: "lato", sans-serif;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  border-radius: 2em;
+  background: #EEE;
+  border: 1px solid #AAA;
 }

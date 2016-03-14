@@ -23,12 +23,22 @@ class Survey < ActiveRecord::Base
     survey_questions.map {|q| q.text}
   end
 
-  def to_csv
-    attributes = %w{question_text}
-
-    CSV.generate(headers: true) do |csv|
-      csv << attributes.map {|attr| send(attr) }
-    end
+  def question_responses
+    survey_questions.map {|q| q.responses}
   end
+
+  def question_with_responses
+    survey_questions.map {|q| "#{q.text} + #{q.responses}" }
+  end
+
+
+  def to_csv
+   attributes = %w{question_with_responses}
+   questions = SurveyQuestion.where(survey_id: :id)
+
+   CSV.generate do |csv|
+       csv << attributes.map {|attr| send(attr) }
+   end
+ end
 
 end

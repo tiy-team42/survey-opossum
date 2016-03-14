@@ -91,4 +91,23 @@ e.preventDefault()
     }
   })
 
+  //create survey page error modal
+  // $('.btn').on('click', function () {
+  //   $(this).text('Click me');
+  //
+  // });
+
+  $('.modal-close, .modal-container').on('click', function () {
+    $('.modal-container').removeClass('showing');
+    $('#error_explanation').hide();
+  });
+
+  $('.modal').click(function (e) {
+    e.stopPropagation();
+  });
+
+	$( '#error_explanation' ).on( 'visibility', function() {
+				$('.modal-container').addClass('showing');
+	}).trigger( 'visibility' );
+
 });//close iify

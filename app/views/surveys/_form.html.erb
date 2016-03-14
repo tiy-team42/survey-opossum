@@ -1,20 +1,27 @@
 <%= form_for(@survey) do |f| %>
-  <% if @survey.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
 
-      <ul>
-      <% @survey.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+
 
   <%= f.hidden_field :author_id, value: session[:user_id] %>
 
   <div class="new-survey-wrap">
+    <% if @survey.errors.any? %>
 
+    <div class="modal-container">
+      <div class="modal">
+        <button class="modal-close">X</button>
+          <div id="error_explanation">
+          <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved. Please correct and resubmit below!</h2>
+
+          <ul>
+            <% @survey.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <% end %>
     <div class="questions-header-bg">
 
       <div class="title-auth-wrap">
@@ -38,7 +45,7 @@
 
 
     <div class='question-wrap'>
-        <%= f.fields_for :survey_questions do |ff| %>
+        <%= f.fields_for :survey_questions, @survey_questions do |ff| %>
 
         <!-- START OF HTML BLOCK THAT SHOULD BE ADDED WHEN NEW ITEM IS CLICKED -->
         <div class='pick-question' id='question0'>
@@ -71,7 +78,7 @@
           </span>
 
 
-    </div>
+        </div>
     <% end %>
 
 </div>
@@ -85,8 +92,8 @@
 
 
 
-      <!-- <div class="actions">
-        <%= f.submit %>
-      </div> -->
+
     <% end %>
+
+
 </div>

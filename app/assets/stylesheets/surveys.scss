@@ -87,7 +87,7 @@ body{
       font-family: 'lato', sans-serif;
       font-weight: 300;
       color: darken($question-color, 70%);
-      margin: 0 0 .5% 1%;
+      margin: 0 0 2% 1%;
 
       width: 97.5%;
       border-radius: .4em;
@@ -132,7 +132,7 @@ body{
           line-height: 1.4em;
           font-size: 1.6em;
           border-radius: .5em;
-          border: solid thin lighten($question-color, 1%);;
+          border: solid thin lighten($question-color, 1%);
         }
       }
       .q-options{
@@ -270,7 +270,7 @@ body{
 
 //this styling is for the page where you take a survey
 .survey-form-header{
-  margin: 122px  0 0 .05%;
+  margin: 130px  0 0 .05%;
   font-family: 'lato', sans-serif;
   font-weight: 300;
   padding: 1.5%  0 1% 0;
@@ -287,15 +287,25 @@ body{
 
 .survey-form-wrap{
   width: 98.9%;
-  // margin: 200px 0 0 0;
+  margin: 0 0 0 1px;
   background: $survey-bg;
-  height: 560px;
+  height: 555px;
   position: fixed;
   overflow: scroll;
 }
+.survey-form-questions-wrap{
+  margin: 1% 0 0 35%;
+  color: darken($primary-color, 35%);
+.short-answer-text-field{
+  width: 50%;
+}
+.long-answer-text-field{
+  width: 50%;
+  height: 125px;
+}
+}
 
-
-
+//results page stying
 .results-form-header{
   margin: 122px  0 0 .05%;
   font-family: 'lato', sans-serif;

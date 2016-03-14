@@ -14,7 +14,7 @@
     <% end %>
 
 
-
+  <div class='survey-form-questions-wrap'>
     <% @survey_questions.each do |survey_question| %>
       <%= survey_question.text  %>
        <%= survey_question.required %>
@@ -31,13 +31,13 @@
             <% elsif survey_question.is_short_answer? %>
                 <%= q.fields_for :short_answer_questions, survey_question.short_answer_questions.build do |ff| %>
                   <div>
-                    <%= ff.text_field :answer, placeholder: "Answer goes here..." %>
+                    <%= ff.text_field :answer, placeholder: "Answer goes here...", :class => 'short-answer-text-field' %>
                   </div>
                 <% end %>
             <% elsif survey_question.is_long_answer? %>
                 <%= q.fields_for :long_answer_questions, survey_question.long_answer_questions.build do |ff| %>
                   <div>
-                    <%= ff.text_area :answer, placeholder: "Answer goes here..." %>
+                    <%= ff.text_area :answer, placeholder: "Answer goes here...", :class => 'long-answer-text-field' %>
                   </div>
                 <% end %>
             <% elsif survey_question.is_dropdown? %>
@@ -54,13 +54,16 @@
       <% end %>
     <% end %>
 
-
-
-
     <div class="test-action">
-      <%= f.submit :class => 'actions' %>
+      <%= f.submit "Submit Your Answers" if @survey.published :class => 'actions' %>
+
     </div>
     <%= link_to 'Edit', edit_survey_path(@survey) %> |
     <%= link_to 'Back', surveys_path %>
   <% end %>
+  </div>
+
+
+
+
 </div>

@@ -34,12 +34,14 @@ $survey-bg: whitesmoke;
       padding: 1.5% 0 1.5% 0;
       color: $bg-color;
       border-bottom: 3px solid $primary-color;
+      opacity: .8;
     }
     .login-wrap{
       background-color: $survey-bg;
       position: fixed;
       width: 98.9%;
       height: 69%;
+      opacity: .8;
       .login-card{
         color: darken($primary-color, 20%);
         font-family: 'lato', sans-serif;
