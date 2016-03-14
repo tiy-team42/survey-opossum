@@ -1,0 +1,61 @@
+// Place all the styles related to the sessions  >> index controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$primary-color: #92c6c1;
+$bg-color: white;
+$question-color: #d9e6ff;
+$survey-bg: whitesmoke;
+
+
+.new-author-title {
+    margin: 132px  0 0 .05%;
+    font-family: 'lato', sans-serif;
+    font-weight: 300;
+    padding: 1%  0 1% 37%;
+    width: 62.95%;
+    border-bottom: solid 3px $primary-color;
+    background-color: darken($primary-color, 25%);
+    color: $bg-color;
+    font-size: .75em;
+    overflow: scroll;
+  }
+
+.author-container {
+    margin: 0 30% 0 20%;
+}
+
+    .landing-header{
+      font-family: 'lato', sans-serif;
+      font-size: 2em;
+      text-align: center;
+      font-weight: 300;
+      background-color: darken($primary-color, 25%);
+      margin: 132px 0 0 1px;
+      padding: 1.5% 0 1.5% 0;
+      color: $bg-color;
+      border-bottom: 3px solid $primary-color;
+    }
+    .landing-wrap{
+      background-color: $survey-bg;
+      position: fixed;
+      width: 98.9%;
+      height: 73%;
+      .landing-card{
+        color: darken($primary-color, 20%);
+        font-family: 'lato', sans-serif;
+        margin: 3% 0 0 32%;
+        background-color: darken($survey-bg, 5%);
+        width: 35%;
+        height: 60%;
+        text-align: center;
+        padding: 4% 0 0 0;
+        border-radius: 3em;
+        border: solid 2px lighten($primary-color, 15%);
+        .welcome-container{
+          display: block;
+		  .landing-welcome{
+	          margin: 5% 0 10% 0;
+		  }
+        }
+      }
+    }

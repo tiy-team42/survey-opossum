@@ -5,20 +5,20 @@
 <!-- commenting this out because there seems to be a margin that's pushing everything to the right a bit. can be re-added if you want to adjust! -->
 <!-- <div class="login-container"> -->
 
-<h1>Ask anything of anyone you want</h1>
-<h3>Log in first, though. Gotta log in first.</h3>
-
 <div class="login-wrap">
-<div class='login-card'>
-  <h1></h1>
+
+<h1 class= "login-welcome">Ask anything of anyone you want</h1>
+<h3 class= "login-welcome">Log in first, though. Gotta log in first.</h3>
+
+<div class='login-container'>
   <h3>Please Enter Your Email Address</h3>
 
   <%= form_tag(login_path) do %>
-  <span class='login-email'>  <%= email_field_tag 'email', nil, placeholder: "Email", :class => 'login-email-field'%></span>
+  <span class='login-email2'>  <%= email_field_tag 'email', nil, placeholder: "Email", :class => 'login-email-field2'%></span>
 
-  <span class="login-password">
+  <span class="login-password2">
   <h3>Please Enter Your Password</h3>
-    <%= password_field_tag 'password', nil, placeholder: "Password", :class => 'login-password-field' %></span>
+    <%= password_field_tag 'password', nil, placeholder: "Password", :class => 'login-password-field2' %></span>
     <span class='login-submit'><%= submit_tag(value="Login") %></span>
   <% end %>
 </div>
