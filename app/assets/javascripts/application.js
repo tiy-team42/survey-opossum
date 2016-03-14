@@ -65,5 +65,17 @@ $(function(){//init DOM
     })
   };
 
+//this is the thanks modal
+    $('.survey-form-wrap').on('click', '.actions', function () {
+      $('.thanks-modal-container').addClass('.showing');
+    });
+
+    $('.thanks-modal-close, .thanks-modal-container').on('click', function () {
+      $('.thanks-modal-container').removeClass('.showing');
+    });
+
+    $('.thanks-modal').click(function (e) {
+      e.stopPropagation();
+    });
 
 });//close iify
