@@ -3,6 +3,9 @@
 <% @questions.each do |q| %>
   <h2>
     <%= q.text %>
+    <% if q.required%>
+      <i class="fa fa-star"></i>
+    <% end %>
   </h2>
     <% q.responses.each do |response| %>
       <%= response %>
