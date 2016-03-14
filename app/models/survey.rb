@@ -37,11 +37,7 @@ class Survey < ActiveRecord::Base
    questions = SurveyQuestion.where(survey_id: :id)
 
    CSV.generate do |csv|
-    #  questions.each do |q|
        csv << attributes.map {|attr| send(attr) }
-      #  csv << [q.text]
-       # csv << q.responses
-    #  end
    end
  end
 
