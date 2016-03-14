@@ -16,16 +16,19 @@
 
 
     <% @survey_questions.each do |survey_question| %>
-      <%= survey_question.text  %>
-       <%= survey_question.required %>
-      <% if @survey.published %>
+      <%= survey_question.text %>
+        <% if survey_question.required%>
+          <i class="fa fa-star"></i>
+        <% end %>
         <%= f.fields_for :survey_questions, survey_question do |q| -%>
             <% if survey_question.is_boolean? %>
                 <%= q.fields_for :boolean_questions, survey_question.boolean_questions.build do |ff| %>
                   <div>
-                    <%= survey_question.choices[0] %>
-                    <%= ff.check_box :answer %>
-                    <%= survey_question.choices[1] %>
+                    <%= ff.label :answer, "#{survey_question.choices[0]}", :value => true %>
+                    <%= ff.radio_button :answer, true %>
+                    <br>
+                    <%= ff.label :answer, "#{survey_question.choices[1]}", :value => false %>
+                    <%= ff.radio_button :answer, false %>
                   </div>
                 <% end %>
             <% elsif survey_question.is_short_answer? %>
@@ -50,7 +53,6 @@
               No question type
             <% end %>
             <br>
-        <% end %>
       <% end %>
     <% end %>
 
@@ -58,7 +60,7 @@
 
 
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit if @survey.published %>
     </div>
     <%= link_to 'Edit', edit_survey_path(@survey) %> |
     <%= link_to 'Back', surveys_path %>
