@@ -77,7 +77,7 @@ $survey-bg: whitesmoke;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 575px;
+  bottom: 35em;
   background: rgba(0, 0, 0, 0.5);
   display: none;
 }
@@ -90,7 +90,7 @@ $survey-bg: whitesmoke;
   position: fixed;
   top: 0;
   left: 0;
-  bottom: 575px;
+  bottom: 35em;
   right: 0;
   background: darken($primary-color, 25%);
   border: 1px solid #AAA;
