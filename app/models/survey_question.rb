@@ -43,6 +43,23 @@ class SurveyQuestion < ActiveRecord::Base
     @responses || ["No Responses Yet"]
   end
 
+  def response_stats
+    if is_boolean? && responses.count > 0
+      number_responses = boolean_questions.group(:answer).count
+      total = boolean_questions.count.to_f
+      true_stats = (number_responses[true] || 0) / total * 100
+      false_stats = (number_responses[false] || 0) / total * 100
+      "#{choices[0]}: #{true_stats}%, #{choices[1]}: #{false_stats}% "
+    elsif is_dropdown? && responses.count > 0
+      number_responses = dropdown_questions.group(:answer).count
+      total = dropdown_questions.count.to_f
+      choices.map {|c| "#{c} : #{(number_responses[c] || 0) / total * 100}%" }
+    else
+      responses
+    end
+
+  end
+
 
 
   def choices
