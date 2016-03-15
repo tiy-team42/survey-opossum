@@ -26,6 +26,7 @@ body{
     background-color: darken($primary-color, 25%);
     color: $bg-color;
     font-size: .75em;
+    opacity: .9;
   }
   .new-survey-wrap{
     margin: 0 0 0 .05%;
@@ -34,6 +35,7 @@ body{
     position: absolute;
     width: 98.85%;
     height: 68.5%;
+    opacity: .9;
     .questions-header-bg{
       padding: 0 0 .2% 0;
       background-color: darken($survey-bg, 3%);
@@ -184,6 +186,7 @@ body{
     color: $bg-color;
     font-size: 1em;
     border-top: solid 2px $primary-color;
+    opacity: .9;
   }
   .actions{
     display: block;
@@ -211,6 +214,7 @@ body{
   background-color: darken($primary-color, 25%);
   color: $bg-color;
   font-size: 2.5  em;
+  opacity: .9;
 }
 
 //this is the main survey view page styling
@@ -224,6 +228,7 @@ body{
   background-color: darken($primary-color, 25%);
   color: $bg-color;
   font-size: 2.5em;
+  opacity: .9;
 }
 .title-col{
   width: 20%;
@@ -240,6 +245,7 @@ body{
   height: 522px;
   overflow: scroll;
   // position: absolute;
+  opacity: .9;
   .a-thing{
       margin: 0 0 0 2%;
   }
@@ -280,6 +286,7 @@ body{
   color: lighten($primary-color, 15%);
   font-size: 2.5em;
   text-align: center;
+  opacity: .9;
   .survey-form-header-text{
     color: $primary-color;
   }
@@ -292,6 +299,7 @@ body{
   height: 555px;
   position: fixed;
   overflow: scroll;
+  opacity: .9;
 }
 .survey-form-questions-wrap{
   margin: 1% 0 0 35%;

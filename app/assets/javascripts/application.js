@@ -16,9 +16,9 @@
 //= require turbolinks
 //= require_tree .
 
-
 $(function(){//init DOM
-  var clickCount = 1;
+
+  var clickCount = 0;
 
   //this function adds questions
   $('.add-question').on("click", function(){
@@ -28,9 +28,6 @@ $(function(){//init DOM
     $('.question-wrap').append("<div class='pick-question' id='question"+clickCount+"'><div class='move-buttons'><span class='move-up'><i class='fa fa-caret-up'></i></span><span class='move-down'><i class='fa fa-caret-down'></i></span></div><span class='q-txt'><input placeholder='Ask Your Question Here' class='q-field' type='text' name='survey[survey_questions_attributes]["+clickCount+"][text]' id='survey_survey_questions_attributes_"+clickCount+"_text'></span><span class='remove-question'>Remove? <input class='q-remove' type='checkbox' value='1' name='survey[survey_questions_attributes]["+clickCount+"][_destroy]' id='survey_survey_questions_attributes"+clickCount+"__destroy'></span><span class='q-options'><span class='q-type'>This is a <select class='survey-questions-dropdown' name='survey[survey_questions_attributes]["+clickCount+"][question_type]' id='survey_survey_questions_attributes_"+clickCount+"_question_type'><option value=''>Select question type...</option><option value='BooleanQuestion'>Yes No</option><option value='ShortAnswerQuestion'>Short Answer</option><option value='LongAnswerQuestion'>Long Answer</option><option value='DropdownQuestion'>Multiple Choice Dropdown</option></select>question</span></span><span class='hidden survey-options'>Place your question values(separated by a comma) here: <input value='Yes, No' type='text' name='survey[survey_questions_attributes]["+clickCount+"][answer_options]' id='survey_survey_questions_attributes_"+clickCount+"_answer_options'></span><input name='survey[survey_questions_attributes]["+clickCount+"][_destroy]'' type='hidden' value='"+clickCount+"'><input type='text' class='q-position hidden' name='survey[survey_questions_attributes]["+clickCount+"][position] id='survey_survey_questions_attributes_"+clickCount+"_position'>  <span class='q-required'>Is this question required? <input name='survey[survey_questions_attributes]["+clickCount+"][required]'' type='hidden' value='"+clickCount+"'><input type='checkbox' value='1' name='survey[survey_questions_attributes]["+clickCount+"][required]' id='survey_survey_questions_attributes_"+clickCount+"_required'></span></div>");
     doWhatMyHeartTellsMe()
     questionPosition()
-
-
-
   });
 
   //this function removes questions
@@ -42,14 +39,14 @@ $(function(){//init DOM
   //this functions moves questions up
   $('.question-wrap').on('click', '.move-up', function(){
     $(this).parents('.pick-question').insertBefore($(this).parents('.pick-question').prev());
-    questionPosition()
+    questionPosition();
     });
 
 
   //this function moves questions down
   $('.question-wrap').on('click', '.move-down', function(){
     $(this).parents('.pick-question').insertAfter($(this).parents('.pick-question').next());
-    questionPosition()
+    questionPosition();
     });
 
 
@@ -67,35 +64,19 @@ $(function(){//init DOM
     })
   };
 
-//this is the thanks modal
-$('.test-action').on('click', function () {
-$('.thanks-modal-container').addClass('showing');
-});
-
-$('.thanks-modal-close, .thanks-modal-container').on('click', function () {
-$('.thanks-modal-container').removeClass('showing');
-e.preventDefault()
-});
-
-$('.thanks-modal').click(function (e) {
-e.preventDefault()
-});
-
   //this function adds a textbox when 'yes/no' is selected in the create/edit survey questions page
   $('.question-wrap').on('blur','.survey-questions-dropdown',  function(){
-    console.log($(this).val());
     if($(this).val() === 'BooleanQuestion'){
       $(this).parents().children('.survey-options').show();
     } else if($(this).val() === 'DropdownQuestion'){
       $(this).parents().children('.survey-options').show();
     }
-  })
+  });
 
   //create survey page error modal
-  // $('.btn').on('click', function () {
-  //   $(this).text('Click me');
-  //
-  // });
+	$( '#error_explanation' ).on( 'visibility', function() {
+				$('.modal-container').addClass('showing');
+	});
 
   $('.modal-close, .modal-container').on('click', function () {
     $('.modal-container').removeClass('showing');
@@ -106,8 +87,18 @@ e.preventDefault()
     e.stopPropagation();
   });
 
-	$( '#error_explanation' ).on( 'visibility', function() {
-				$('.modal-container').addClass('showing');
-	}).trigger( 'visibility' );
+  //this is the thanks modal
+  $('.test-action').on('click', function () {
+  $('.thanks-modal-container').addClass('showing');
+  });
+
+  $('.thanks-modal-close, .thanks-modal-container').on('click', function () {
+  $('.thanks-modal-container').removeClass('showing');
+  e.preventDefault()
+  });
+
+  $('.thanks-modal').click(function (e) {
+  e.preventDefault()
+  });
 
 });//close iify
