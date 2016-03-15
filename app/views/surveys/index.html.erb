@@ -1,8 +1,5 @@
 <h1 class='survey-main-header'>Y O U R &nbsp;&nbsp;&nbsp;&nbsp;S U R V E Y S</h1>
 
-<% if @surveys.empty? %>
-  <h3 class='empty-surveys-index-page-msg'> FIRST, &nbsp;&nbsp;&nbsp;&nbsp; MAKE &nbsp;&nbsp;&nbsp;&nbsp; A &nbsp;&nbsp;&nbsp;&nbsp; SURVEY </h3>
-<% end %>
 
 <div class='survey-main-body'>
 <table>
@@ -28,6 +25,9 @@
     <% end %>
   </tbody>
 </table>
+<% if @surveys.empty? %>
+  <h3 class='empty-surveys-index-page-msg'> FIRST, &nbsp;&nbsp;&nbsp;&nbsp; MAKE &nbsp;&nbsp;&nbsp;&nbsp; A &nbsp;&nbsp;&nbsp;&nbsp; SURVEY </h3>
+<% end %>
 
 <br>
 
