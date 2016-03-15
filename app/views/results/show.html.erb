@@ -8,7 +8,8 @@
       <i class="fa fa-star"></i>
     <% end %>
   </h2>
-    <% q.responses.each_with_index do |response, i| %>
+  <% actual_responses = q.responses.reject {|r| r.empty? } %>
+    <% actual_responses.each_with_index do |response, i| %>
       <%= "#{i+ 1}. #{response}" %> <br>
     <% end %>
 <% end %>
