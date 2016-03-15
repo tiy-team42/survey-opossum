@@ -58,6 +58,8 @@
 
 
     <div class="test-action">
+      <%= f.submit "Submit Your Answers" if @survey.published%>
+
       <%= f.submit "Submit Your Answers", :class => 'actions' if @survey.published  %>
 
     </div>
