@@ -74,6 +74,9 @@ body{
         font-family: 'lato', 'sans-serif';
         border: solid 2px $primary-color;
         border-radius: .5em;
+        &:hover{
+          background-color: darken($primary-color, 25%);
+        }
       }
     }
     .question-wrap{
