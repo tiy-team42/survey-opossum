@@ -1,28 +1,7 @@
-== README
+## Overview
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project was built as a collaboration between students in the Front-End Engineering and Ruby on Rails courses at The Iron Yard in Durham.
 
-Things you may want to cover:
+In short, this app is a survey building app. Users can create accounts and create surveys to share with their friends. Anyone can take a survey, and can take the survey as many times as they wish!
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+To view a working demo of this application, please visit https://calm-castle-47478.herokuapp.com.
